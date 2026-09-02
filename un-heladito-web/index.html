@@ -1,0 +1,244 @@
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Heladito — El Sabor de la Felicidad</title>
+    <!-- Tipografías Oficiales: Montserrat y Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <!-- Vinculación a Hoja de Estilo Externa -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <!-- Encabezado Principal de la Página -->
+    <header class="main-header">
+        <div class="header-container">
+            <!-- Logotipo Institucional -->
+            <a href="index.html" class="brand-logo">
+                <span class="logo-icon">🍦</span>
+                <span class="logo-text">Un Heladito?</span>
+            </a>
+
+            <!-- Navegación Principal Interconectada -->
+            <nav class="main-nav">
+    <ul>
+        <li><a href="index.html" class="nav-link active">Inicio</a></li>
+        <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+        <li><a href="nosotros.html" class="nav-link">Nosotros & Sucursales</a></li>
+        <li><a href="estadisticas.html" class="nav-link">Estadísticas</a></li>
+        <li><a href="contacto.html" class="nav-link">Contacto / Registro</a></li>
+    </ul>
+</nav>
+
+            <!-- Acciones Rápidas (Buscador y Carrito) -->
+            <div class="header-actions">
+                <button class="btn-icon" title="Buscar producto" onclick="toggleSearch()">🔍</button>
+                <a href="catalogo.html" class="btn btn-cart">
+                    🛒 <span>Carrito</span> <strong id="cart-counter">(0)</strong>
+                </a>
+            </div>
+        </div>
+
+        <!-- Barra de Búsqueda Desplegable -->
+        <div id="search-bar" class="search-bar-container" style="display: none;">
+            <input type="text" id="input-search" placeholder="Buscar por sabor (ej. Chocolate Belga, Sorbete, Mango...)" class="search-input">
+            <button class="btn btn-secondary" onclick="ejecutarBusqueda()">Buscar</button>
+        </div>
+    </header>
+
+    <!-- Contenido Principal Semántico -->
+    <main>
+
+        <!-- Banner Principal (Hero) -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <span class="hero-badge">✨ 100% Artesanal & Natural</span>
+                    <h1>El Sabor de la Felicidad Directo a tu Hogar 🍨</h1>
+                    <p>Conectamos a las familias chilenas con la auténtica heladería de autor. Ingredientes locales de estación, leche de libre pastoreo y cadena de frío garantizada a lo largo de Chile.</p>
+                    <div class="hero-buttons">
+                        <a href="catalogo.html" class="btn btn-primary">Ver Catálogo Completo 🍨</a>
+                        <a href="#proceso-artesanal" class="btn btn-outline">Conoce el Proceso 🎥</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+    <img src="assets/hero.jpg" alt="Helado artesanal minimalista en bowl de cerámica">
+</div>
+            </div>
+        </section>
+
+        <!-- Destacados / Propuesta de Valor -->
+        <section class="features-section">
+            <div class="container features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🍓</span>
+                    <h3>Frutas de Estación</h3>
+                    <p>Frutillas de Alhué, mangos de Pica y frutos del bosque del sur de Chile.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🌱</span>
+                    <h3>Opciones Plant-Based</h3>
+                    <p>Sorbetes veganos 100% libres de lácteos, sin gluten y sin conservantes.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">❄️</span>
+                    <h3>Cadena de Frío 100%</h3>
+                    <p>Despacho térmico especializado con monitoreo de temperatura en tiempo real.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📍</span>
+                    <h3>9 Puntos en Chile</h3>
+                    <p>Presencia directa desde Antofagasta hasta Puerto Montt con tiendas físicas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catálogo Destacado de Sabores Estrella -->
+        <section class="catalog-preview container">
+            <div class="section-header">
+                <h2>Nuestras Creaciones Estrella 🌟</h2>
+                <p>Descubre las preparaciones preferidas por nuestros clientes esta temporada.</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Producto 1: Tradicional -->
+                <article class="product-card">
+                    <div class="card-badge tag-classic">Tradicional Cremoso</div>
+                    <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&w=500&q=80" alt="Helado de Chocolate Belga 70%">
+                    <div class="card-body">
+                        <h3>Chocolate Belga 70%</h3>
+                        <p class="product-code">Código: HT001</p>
+                        <p class="product-desc">Cacao belga de alta pureza con hojuelas de chocolate semiamargo rallado.</p>
+                        <div class="card-footer">
+                            <span class="product-price">$4.500 CLP <small>/ 500g</small></span>
+                            <button class="btn btn-add" onclick="agregarProducto('HT001', 'Chocolate Belga 70%')">Agregar 🛒</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 2: Vegano -->
+                <article class="product-card">
+                    <div class="card-badge tag-vegan">Sorbete Vegano</div>
+                    <img src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?auto=format&fit=crop&w=500&q=80" alt="Sorbete de Frutilla & Albahaca">
+                    <div class="card-body">
+                        <h3>Frutilla & Albahaca</h3>
+                        <p class="product-code">Código: SV001</p>
+                        <p class="product-desc">Frutillas frescas del Valle de Alhué con una sutil nota de albahaca silvestre.</p>
+                        <div class="card-footer">
+                            <span class="product-price">$3.900 CLP <small>/ 500g</small></span>
+                            <button class="btn btn-add" onclick="agregarProducto('SV001', 'Sorbete Frutilla & Albahaca')">Agregar 🛒</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 3: Paleta -->
+                <article class="product-card">
+                    <div class="card-badge tag-filled">Paleta Rellena</div>
+                    <img src="https://images.unsplash.com/photo-1488900128323-21503983257e?auto=format&fit=crop&w=500&q=80" alt="Paleta de Maracuyá rellena de Leche Condensada">
+                    <div class="card-body">
+                        <h3>Maracuyá & Leche Condensada</h3>
+                        <p class="product-code">Código: PA001</p>
+                        <p class="product-desc">Exterior crocante de maracuyá natural con centro fluido de leche condensada.</p>
+                        <div class="card-footer">
+                            <span class="product-price">$2.200 CLP <small>/ Unidad</small></span>
+                            <button class="btn btn-add" onclick="agregarProducto('PA001', 'Paleta Maracuyá')">Agregar 🛒</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 4: Copa / Sundae -->
+                <article class="product-card">
+                    <div class="card-badge tag-sundae">Postre & Copa</div>
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=500&q=80" alt="Copa Sundae Caramelo Salado">
+                    <div class="card-body">
+                        <h3>Sundae Caramelo Salado</h3>
+                        <p class="product-code">Código: PC001</p>
+                        <p class="product-desc">Crema americana, salsa de caramelo con sal de Cahuil y nuez pecana tostada.</p>
+                        <div class="card-footer">
+                            <span class="product-price">$5.200 CLP <small>/ 400g</small></span>
+                            <button class="btn btn-add" onclick="agregarProducto('PC001', 'Sundae Caramelo Salado')">Agregar 🛒</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sección de Contenido Educativo y Video Embebido -->
+        <section id="proceso-artesanal" class="video-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>El Arte Detrás de Nuestra Elaboración 🎥</h2>
+                    <p>Aprende cómo combinamos la tradición gastronómica con prácticas de comercio justo y sostenibilidad.</p>
+                </div>
+
+                <div class="video-grid">
+                    <div class="video-container">
+                        <!-- Video Embebido Requerido por Rúbrica IE1.1.1 -->
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Proceso de Elaboración Artesanal - Un Heladito" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Compromiso con el Origen y la Calidad 🌾</h3>
+                        <ul>
+                            <li><strong>Leche Fresca Local: </strong>Provista por cooperativas lácteas del sur de Chile.</li>
+                            <li><strong>Cero Pérdida Térmica: </strong>Salas de congelación alimentadas con energía solar limpia.</li>
+                            <li><strong>Empaques Compostables: </strong>Envases biodegradables a base de almidón de maíz.</li>
+                        </ul>
+                        <a href="nosotros.html" class="btn btn-secondary" style="margin-top: 15px;">Conoce Nuestras 9 Sucursales 📍</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de Página Informativo (Footer) -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <div class="footer-logo">🍦 Un Heladito</div>
+                <p>Cadena de heladerías artesanales y tienda e-commerce. Llevando momentos de felicidad y consumo consciente a los hogares chilenos.</p>
+                <span class="eco-badge">♻️ Huella de Carbono Neutra</span>
+            </div>
+
+            <div class="footer-col">
+                <h4>Nuestros Puntos de Venta</h4>
+                <ul class="branches-list">
+                    <li>📍 Santiago | Viña del Mar | Valparaíso</li>
+                    <li>📍 Concepción | La Serena | Antofagasta</li>
+                    <li>📍 Temuco | Puerto Montt | Rancagua</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegación Rápida</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo de Helados</a></li>
+                    <li><a href="nosotros.html">Sostenibilidad & Historia</a></li>
+                    <li><a href="contacto.html">Registro & Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Conéctate con Nosotros</h4>
+                <p>Comparte tus fotos con el hashtag <strong>#UnHeladitoDeFelicidad</strong></p>
+                <div class="social-buttons">
+                    <a href="https://instagram.com" target="_blank" class="social-link">Instagram 📷</a>
+                    <a href="https://tiktok.com" target="_blank" class="social-link">TikTok 🎵</a>
+                    <a href="https://whatsapp.com" target="_blank" class="social-link">WhatsApp 💬</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Un Heladito SpA — Escuela de Informática y Telecomunicaciones (Duoc UC). Proyecto DSY1104.</p>
+        </div>
+    </footer>
+
+    <!-- Script JS vinculado externamente -->
+    <script src="js/main.js"></script>
+</body>
+</html>
