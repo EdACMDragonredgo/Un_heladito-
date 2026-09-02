@@ -1,156 +1,120 @@
-/* Variables y Estilos Base */
-:root {
-    --primary-color: #e84393;
-    --secondary-color: #fd79a8;
-    --bg-color: #f8f9fa;
-    --card-bg: #ffffff;
-    --text-color: #2d3436;
-    --border-color: #dfe6e9;
+/* ==========================================================================
+   7. SECCIÓN DE FORMULARIOS Y CONTACTO
+   ========================================================================== */
+.form-section {
+    padding: 60px 20px;
+    max-width: 680px;
+    margin: 0 auto;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
 }
 
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+.section-title h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* Tarjeta Contenedora del Formulario */
+.custom-form {
+    background-color: var(--bg-white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+    border: 1px solid #F0EAE1;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Encabezado y Navegación */
-.main-header {
-    background-color: var(--card-bg);
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.main-header h1 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-}
-
-.main-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.nav-link:hover, .nav-link.active {
-    color: var(--primary-color);
-}
-
-/* Contenedor Principal */
-.container {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    flex: 1;
-}
-
-/* Tarjeta del Formulario */
-.contact-card {
-    background-color: var(--card-bg);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.contact-card h2 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-.contact-card p {
-    margin-bottom: 1.5rem;
-    color: #636e72;
+    gap: 22px;
 }
 
 /* Campos de Formulario */
 .form-group {
-    margin-bottom: 1.2rem;
     display: flex;
     flex-direction: column;
+    gap: 8px;
+    text-align: left;
 }
 
 .form-group label {
-    font-weight: 600;
-    margin-bottom: 0.4rem;
     font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-title);
 }
 
-.form-group input, 
-.form-group select, 
-.form-group textarea {
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    font-size: 0.95rem;
-    outline: none;
-}
-
-.form-group input:focus, 
-.form-group select:focus, 
-.form-group textarea:focus {
-    border-color: var(--secondary-color);
-}
-
-/* Botón */
-.btn-primary {
+.form-control {
     width: 100%;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0.85rem;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s;
+    padding: 12px 16px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    background-color: #FAFAFA;
+    border: 1.5px solid #E2DCD5;
+    border-radius: 10px;
+    outline: none;
+    transition: var(--transition);
 }
 
-.btn-primary:hover {
-    background-color: #d63031;
+.form-control::placeholder {
+    color: #A09891;
+}
+
+/* Interacción de Focus y Selección */
+.form-control:focus {
+    background-color: var(--bg-white);
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 4px rgba(59, 154, 156, 0.12);
+}
+
+/* Textarea / Área de Mensaje */
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
 }
 
 /* Mensajes de Validación */
-.error-text {
-    color: #d63031;
-    font-size: 0.85rem;
-    margin-top: 0.3rem;
+.error-message {
+    font-size: 0.8rem;
+    color: var(--color-primary);
     font-weight: 600;
+    min-height: 18px;
 }
 
-.success-text {
-    color: #00b894;
+.form-control.input-error {
+    border-color: var(--color-primary);
+    background-color: #FFF5F6;
+}
+
+/* Banner de Confirmación Exitosa */
+.success-banner {
+    background-color: #E8F5E9;
+    color: #2E7D32;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #C8E6C9;
+    text-align: center;
     font-size: 0.95rem;
-    font-weight: 600;
-    margin-top: 1rem;
-    text-align: center;
 }
 
-/* Pie de Página */
-.main-footer {
-    background-color: var(--card-bg);
-    text-align: center;
-    padding: 1rem;
-    margin-top: auto;
-    border-top: 1px solid var(--border-color);
-    font-size: 0.9rem;
-    color: #636e72;
+/* Botón adaptable al ancho del formulario */
+.custom-form .btn {
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Ajuste Responsivo */
+@media (max-width: 576px) {
+    .custom-form {
+        padding: 25px 20px;
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
 }
