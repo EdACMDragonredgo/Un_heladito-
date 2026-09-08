@@ -173,5 +173,35 @@ th{background:#F8F4F0;color:var(--color-title)}
     .footer-content{grid-template-columns:1fr}
 }
 
-/* Contacto */
 .contact-box{max-width:650px}
+
+.star-rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 1.8rem;
+    color: #DDD;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.15s ease;
+    line-height: 1;
+}
+
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input[type="radio"]:checked ~ label {
+    color: #FFC107; /* Color Dorado/Estrella */
+}
+
+.star-rating label:hover {
+    transform: scale(1.15);
+}

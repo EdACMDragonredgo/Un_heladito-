@@ -1,63 +1,51 @@
+
 document.addEventListener("DOMContentLoaded", ()=>{
     const session=requireRole("Cliente");
     if(!session) return;
 
     document.getElementById("welcome").textContent=`Hola, ${session.name}`;
-
-    const logoutButton = document.getElementById("logout");
-    if(logoutButton) logoutButton.addEventListener("click", logout);
+    document.getElementById("logout").addEventListener("click", logout);
 
     const products=getProducts();
     const grid=document.getElementById("buyer-products");
-
-    if(!grid) return;
-
     grid.innerHTML=products.map(p=>`
         <article class="mini-card">
-            <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}">
+            <img src="${p.image}" alt="${escapeHtml(p.name)}">
             <div class="mini-card-body">
                 <h3>${escapeHtml(p.name)}</h3>
-                <p>${formatCLP(p.price)} · ${escapeHtml(p.format)}</p>
+                <p>${formatCLP(p.price)} · ${p.format}</p>
                 <p>Stock: ${p.stock}</p>
-                <button
-                    type="button"
-                    class="btn-small btn-primary buy-btn"
-                    data-id="${escapeHtml(p.id)}"
-                    ${p.stock<=0 ? "disabled" : ""}>
+                <button class="btn-small btn-primary buy-btn" data-id="${p.id}" ${p.stock<=0?"disabled":""}>
                     Agregar al carrito
                 </button>
             </div>
         </article>
     `).join("");
 
-    grid.querySelectorAll(".buy-btn").forEach(button=>{
-        button.addEventListener("click", ()=>{
-            const product=products.find(item=>item.id===button.dataset.id);
-            if(!product) return;
-
-            const result=addToCart(product,1);
-
-            if(result.ok){
-                const originalText=button.textContent;
-                button.textContent="✓ Agregado";
-                button.disabled=true;
-                setTimeout(()=>{
-                    button.textContent=originalText;
-                    button.disabled = product.stock <= 0;
-                },900);
-            }else{
-                alert(result.message);
-            }
+    grid.querySelectorAll(".buy-btn").forEach(btn=>{
+        btn.addEventListener("click",()=>{
+            const cart=JSON.parse(localStorage.getItem("unheladito_cart")||"[]");
+            const p=products.find(x=>x.id===btn.dataset.id);
+            if(!p) return;
+            const item=cart.find(x=>x.id===p.id);
+            if(item) item.qty+=1;
+            else cart.push({id:p.id, name:p.name, price:p.price, qty:1});
+            localStorage.setItem("unheladito_cart",JSON.stringify(cart));
+            updateCart();
         });
     });
+
+    function updateCart(){
+        const cart=JSON.parse(localStorage.getItem("unheladito_cart")||"[]");
+        const count=cart.reduce((sum,i)=>sum+i.qty,0);
+        document.getElementById("cart-count").textContent=count;
+    }
+    updateCart();
 });
 
+function formatCLP(value){
+    return new Intl.NumberFormat("es-CL",{style:"currency",currency:"CLP",maximumFractionDigits:0}).format(value);
+}
 function escapeHtml(text){
-    return String(text).replace(/[&<>"']/g,m=>({
-        "&":"&amp;",
-        "<":"&lt;",
-        ">":"&gt;",
-        '"':"&quot;",
-        "'":"&#039;"
-    }[m]));
+    return String(text).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 }

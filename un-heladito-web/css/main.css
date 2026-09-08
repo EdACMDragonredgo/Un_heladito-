@@ -1,8 +1,4 @@
-/* ==========================================================================
-   1. VARIABLES DE DISEÑO "UN HELADITO" (PROPUESTA CASO DE ESTUDIO)
-   ========================================================================== */
 :root {
-    /* Paleta Cromática */
     --bg-main: #FFFDF7;            /* Blanco Crema Suave */
     --color-primary: #E85D75;     /* Rosa Pastelería / Frutilla */
     --color-secondary: #3B9A9C;   /* Azul Menta Fresca */
@@ -11,18 +7,15 @@
     --text-secondary: #666666;    /* Gris Medio */
     --bg-white: #FFFFFF;
 
-    /* Tipografía */
     --font-heading: 'Playfair Display', Georgia, serif;
     --font-body: 'Montserrat', system-ui, -apple-system, sans-serif;
 
-    /* Bordes y Sombras */
     --border-radius: 14px;
     --shadow-card: 0 8px 24px rgba(92, 61, 46, 0.08);
     --shadow-header: 0 4px 16px rgba(0, 0, 0, 0.05);
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Reset Global */
 * {
     margin: 0;
     padding: 0;
@@ -52,9 +45,7 @@ a {
     color: inherit;
 }
 
-/* ==========================================================================
-   2. ENCABEZADO Y NAVEGACIÓN
-   ========================================================================== */
+
 .main-header {
     background-color: var(--bg-white);
     position: sticky;
@@ -127,59 +118,7 @@ a {
     gap: 12px;
 }
 
-.btn-icon {
-    background: none;
-    border: none;
-    font-size: 1.3rem;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
-    transition: var(--transition);
-}
 
-.btn-icon:hover {
-    background-color: #F0F0F0;
-}
-
-.btn-cart {
-    background-color: var(--color-secondary);
-    color: var(--bg-white);
-    padding: 8px 18px;
-    border-radius: 20px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.9rem;
-    transition: var(--transition);
-}
-
-.btn-cart:hover {
-    background-color: #2E7C7E;
-    transform: translateY(-2px);
-}
-
-.search-bar-container {
-    background-color: #F7F9FA;
-    padding: 12px 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    border-top: 1px solid #E5E5E5;
-}
-
-.search-input {
-    width: 60%;
-    max-width: 500px;
-    padding: 10px 16px;
-    border: 1px solid #CCC;
-    border-radius: 20px;
-    font-family: var(--font-body);
-}
-
-/* ==========================================================================
-   3. BOTONES
-   ========================================================================== */
 .btn {
     display: inline-block;
     padding: 12px 26px;
@@ -223,277 +162,94 @@ a {
     color: var(--bg-white);
 }
 
-.btn-add {
-    background-color: var(--color-primary);
-    color: var(--bg-white);
-    padding: 8px 14px;
-    border-radius: 18px;
-    font-size: 0.85rem;
-}
 
-.btn-add:hover {
-    background-color: #D44B63;
-}
-
-/* ==========================================================================
-   4. HERO Y CONTENIDOS
-   ========================================================================== */
-.hero-section {
-    background: linear-gradient(135deg, #FFFDF7 0%, #FDE8ED 100%);
-    padding: 70px 20px;
-}
-
-.hero-container {
+.dashboard {
     max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
+    margin: 60px auto;
+    padding: 0 20px;
 }
 
-.hero-badge {
-    display: inline-block;
-    background-color: #F8D0D8;
+.page-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.page-title h1 {
+    font-family: var(--font-heading);
     color: var(--color-title);
-    padding: 6px 14px;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    margin-bottom: 15px;
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
 
-.hero-text h1 {
-    font-size: 2.8rem;
-    line-height: 1.2;
-    margin-bottom: 18px;
-}
-
-.hero-text p {
-    font-size: 1.1rem;
+.page-title p {
     color: var(--text-secondary);
-    margin-bottom: 28px;
+    font-size: 1.1rem;
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
 
-.hero-image img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: var(--shadow-card);
-}
-
-.features-section {
-    padding: 50px 0;
-    background-color: var(--bg-white);
-    border-bottom: 1px solid #EFEFEF;
-}
-
-.features-grid {
+.metrics {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
-}
-
-.feature-card {
-    text-align: center;
-    padding: 20px;
-    border-radius: var(--border-radius);
-    background: var(--bg-main);
-    transition: var(--transition);
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-card);
-}
-
-.feature-icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 12px;
-}
-
-.feature-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-}
-
-.feature-card p {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-}
-
-/* ==========================================================================
-   5. CATÁLOGO Y PRODUCTOS
-   ========================================================================== */
-.catalog-preview {
-    padding: 70px 20px;
-}
-
-.section-header {
-    text-align: center;
     margin-bottom: 45px;
 }
 
-.section-header h2 {
-    font-size: 2.3rem;
-    margin-bottom: 10px;
-}
-
-.section-header p {
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-}
-
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-}
-
-.product-card {
-    background-color: var(--bg-white);
+.metric-card {
+    background: var(--bg-white);
+    padding: 30px;
     border-radius: var(--border-radius);
-    overflow: hidden;
     box-shadow: var(--shadow-card);
-    position: relative;
-    display: flex;
-    flex-direction: column;
+    text-align: center;
     transition: var(--transition);
 }
 
-.product-card:hover {
+.metric-card:hover {
     transform: translateY(-6px);
 }
 
-.product-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.card-badge {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    padding: 5px 12px;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--bg-white);
-}
-
-.tag-classic { background-color: var(--color-title); }
-.tag-vegan { background-color: var(--color-secondary); }
-.tag-filled { background-color: var(--color-primary); }
-.tag-sundae { background-color: #8E44AD; }
-
-.card-body {
-    padding: 22px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.card-body h3 {
-    font-size: 1.25rem;
-    margin-bottom: 4px;
-}
-
-.product-code {
-    font-size: 0.8rem;
-    font-weight: 600;
+.metric-card span {
+    display: block;
     color: var(--text-secondary);
+    font-size: 0.9rem;
     margin-bottom: 10px;
 }
 
-.product-desc {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 18px;
-    flex-grow: 1;
-}
-
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #F0F0F0;
-    padding-top: 14px;
-}
-
-.product-price {
-    font-size: 1.2rem;
-    font-weight: 700;
+.metric-card strong {
+    font-size: 1.25rem;
     color: var(--color-primary);
 }
 
-.product-price small {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    font-weight: normal;
-}
 
-/* ==========================================================================
-   6. VIDEO & FOOTER
-   ========================================================================== */
-.video-section {
-    background-color: var(--bg-white);
-    padding: 70px 20px;
-    border-top: 1px solid #EFEFEF;
-}
-
-.video-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 40px;
-    align-items: center;
-}
-
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
+.panel {
+    background: var(--bg-white);
     border-radius: var(--border-radius);
-    overflow: hidden;
     box-shadow: var(--shadow-card);
+    padding: 40px;
 }
 
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+.panel-head {
+    margin-bottom: 30px;
+    text-align: center;
 }
 
-.video-info h3 {
-    font-size: 1.6rem;
-    margin-bottom: 15px;
+.panel-head h2 {
+    font-size: 2rem;
+    color: var(--color-title);
 }
 
-.video-info ul {
-    list-style: none;
-    margin-bottom: 20px;
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.video-info li {
-    margin-bottom: 12px;
-    font-size: 0.95rem;
-}
 
 .main-footer {
     background-color: var(--color-title);
     color: var(--bg-white);
     padding: 60px 0 20px 0;
+    margin-top: 70px;
 }
 
 .footer-content {
@@ -516,21 +272,12 @@ a {
     margin-bottom: 15px;
 }
 
-.eco-badge {
-    display: inline-block;
-    background-color: rgba(255, 255, 255, 0.15);
-    padding: 6px 12px;
-    border-radius: 10px;
-    font-size: 0.8rem;
-}
-
 .footer-col h4 {
     color: #FFFDF7;
     margin-bottom: 18px;
     font-size: 1.1rem;
 }
 
-.branches-list li,
 .footer-col ul li {
     font-size: 0.88rem;
     color: #E0D6D1;
@@ -547,19 +294,6 @@ a {
     color: var(--color-primary);
 }
 
-.social-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.social-link {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-}
-
 .footer-bottom {
     text-align: center;
     margin-top: 50px;
@@ -574,131 +308,16 @@ a {
         flex-direction: column;
         gap: 15px;
     }
-    .hero-container,
-    .video-grid {
-        grid-template-columns: 1fr;
+
+    .page-title h1 {
+        font-size: 2.2rem;
     }
-    .hero-text h1 {
-        font-size: 2.1rem;
+
+    .actions {
+        flex-direction: column;
     }
-}
-/* ==========================================================================
-   7. SECCIÓN DE FORMULARIOS Y CONTACTO
-   ========================================================================== */
-.form-section {
-    padding: 60px 20px;
-    max-width: 680px;
-    margin: 0 auto;
-}
 
-.section-title {
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-.section-title h2 {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-}
-
-.section-title p {
-    color: var(--text-secondary);
-    font-size: 1rem;
-}
-
-/* Tarjeta Contenedora del Formulario */
-.custom-form {
-    background-color: var(--bg-white);
-    padding: 40px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-card);
-    border: 1px solid #F0EAE1;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-}
-
-/* Campos de Formulario */
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    text-align: left;
-}
-
-.form-group label {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--color-title);
-}
-
-.form-control {
-    width: 100%;
-    padding: 12px 16px;
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    color: var(--text-primary);
-    background-color: #FAFAFA;
-    border: 1.5px solid #E2DCD5;
-    border-radius: 10px;
-    outline: none;
-    transition: var(--transition);
-}
-
-.form-control::placeholder {
-    color: #A09891;
-}
-
-/* Interacción de Focus y Selección */
-.form-control:focus {
-    background-color: var(--bg-white);
-    border-color: var(--color-secondary);
-    box-shadow: 0 0 0 4px rgba(59, 154, 156, 0.12);
-}
-
-/* Textarea / Área de Mensaje */
-textarea.form-control {
-    min-height: 120px;
-    resize: vertical;
-}
-
-/* Mensajes de Validación */
-.error-message {
-    font-size: 0.8rem;
-    color: var(--color-primary);
-    font-weight: 600;
-    min-height: 18px;
-}
-
-.form-control.input-error {
-    border-color: var(--color-primary);
-    background-color: #FFF5F6;
-}
-
-/* Banner de Confirmación Exitosa */
-.success-banner {
-    background-color: #E8F5E9;
-    color: #2E7D32;
-    padding: 14px;
-    border-radius: 10px;
-    border: 1px solid #C8E6C9;
-    text-align: center;
-    font-size: 0.95rem;
-}
-
-/* Botón adaptable al ancho del formulario */
-.custom-form .btn {
-    margin-top: 10px;
-    width: 100%;
-}
-
-/* Ajuste Responsivo */
-@media (max-width: 576px) {
-    .custom-form {
-        padding: 25px 20px;
-    }
-    
-    .section-title h2 {
-        font-size: 1.8rem;
+    .actions .btn {
+        width: 100%;
     }
 }

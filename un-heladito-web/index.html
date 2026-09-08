@@ -7,31 +7,34 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/comprador.css">
+<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
 <header class="main-header">
   <div class="header-container">
     <a class="brand-logo" href="index.html"><span class="logo-icon">🍦</span><span class="logo-text">Un Heladito</span></a>
-    <nav class="main-nav">
-            <ul>
-                <li><a href="index.html" class="nav-link">Inicio</a></li>
-                <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
-                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
-            </ul>
-        </nav>
+    <nav class="main-nav"><ul><li><a class="nav-link active" href="index.html">Inicio</a></li>
+      <li><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+      <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+      <li><a class="nav-link" href="contacto.html">Contacto</a></li>
+    </ul></nav>
     <div class="header-actions"><a class="btn btn-primary" href="login.html">Ingresar</a></div>
   </div>
 </header>
 <main class="dashboard">
   <div class="page-title"><h1>El Sabor de la Felicidad 🍨</h1><p>Plataforma e-commerce Un Heladito</p></div>
   <section class="metrics">
+  <a href="comprador.html" class="metric-card-link">
     <div class="metric-card"><span>Cliente</span><strong>🛒 Comprar</strong></div>
+  </a>
+  <a href="admin.html" class="metric-card-link">
     <div class="metric-card"><span>Administrador</span><strong>🔐 Gestionar</strong></div>
+  </a>
+  <a href="catalogo.html" class="metric-card-link">
     <div class="metric-card"><span>Catálogo</span><strong>🍦 9 productos</strong></div>
-    <div class="metric-card"><span>Persistencia</span><strong>💾 LocalStorage</strong></div>
-  </section>
+  </a>
+</section>
   <section class="panel">
     <div class="panel-head"><h2>Accesos</h2></div>
     <div class="actions">

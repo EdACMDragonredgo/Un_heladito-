@@ -173,5 +173,4 @@ th{background:#F8F4F0;color:var(--color-title)}
     .footer-content{grid-template-columns:1fr}
 }
 
-/* Vista administrativa */
 .admin-theme .page-title{text-align:left;max-width:1200px;margin:auto;padding-left:20px;padding-right:20px}

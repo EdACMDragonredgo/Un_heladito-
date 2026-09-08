@@ -73,8 +73,7 @@ function initStorage(){
     getProducts();
     const users=getUsers();
     if(users.length===0){
-        // Cuenta inicial opcional para probar el panel. Se guarda en localStorage
-        // porque esta entrega no tiene backend, de acuerdo con el ERS.
+        
         saveUsers([{
             id: crypto.randomUUID(),
             name:"Administrador Demo",

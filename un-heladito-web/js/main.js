@@ -1,7 +1,6 @@
-// Contador de productos añadidos al Carrito
+
 let totalCarrito = 0;
 
-// Desplegar / Ocultar la barra de búsqueda en el encabezado
 function toggleSearch() {
     const searchBar = document.getElementById("search-bar");
     if (searchBar) {
@@ -15,7 +14,7 @@ function toggleSearch() {
     }
 }
 
-// Ejecutar acción del buscador
+
 function ejecutarBusqueda() {
     const input = document.getElementById("input-search");
     if (input) {
@@ -29,7 +28,7 @@ function ejecutarBusqueda() {
     }
 }
 
-// Incrementar contador de carrito y notificar al cliente
+
 function agregarProducto(codigo, nombre) {
     totalCarrito++;
     const cartCounter = document.getElementById("cart-counter");

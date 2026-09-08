@@ -1,0 +1,302 @@
+:root {
+    --bg-main: #FFFDF7;
+    --color-primary: #E85D75;
+    --color-secondary: #3B9A9C;
+    --color-title: #5C3D2E;
+    --text-primary: #2B2B2B;
+    --text-secondary: #666666;
+    --white: #FFFFFF;
+    --border-color: #F0EAE1;
+    --font-body: 'Montserrat', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --shadow-card: 0 8px 24px rgba(92, 61, 46, 0.08);
+    --shadow-hover: 0 12px 30px rgba(92, 61, 46, 0.15);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--color-title);
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--white);
+    border-bottom: 3px solid #F8E8EB;
+    box-shadow: 0 4px 16px rgba(0,0,0,.05);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.logo-icon { font-size: 1.8rem; }
+
+.logo-text {
+    font: 700 1.5rem var(--font-heading);
+    color: var(--color-primary);
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 18px;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-link {
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 5px 0;
+    position: relative;
+    transition: var(--transition);
+}
+
+.nav-link:hover, .nav-link.active { color: var(--color-primary); }
+
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--color-primary);
+    border-radius: 2px;
+}
+
+.btn-cart {
+    background: var(--color-secondary);
+    color: var(--white);
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.btn-cart:hover {
+    background: #2E7C7E;
+}
+
+
+.about-section {
+    max-width: 1000px;
+    margin: 0 auto 80px auto;
+    padding: 0 20px;
+}
+
+.page-title {
+    text-align: center;
+    padding: 42px 20px 28px;
+}
+
+.page-title h1 { font-size: 2.35rem; }
+.page-title p { color: var(--text-secondary); margin-top: 6px; }
+
+
+.about-hero {
+    margin-bottom: 50px;
+}
+
+.about-card {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+}
+
+.about-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    color: var(--color-primary);
+}
+
+.about-card p {
+    margin-bottom: 14px;
+    color: #4A4A4A;
+    font-size: 0.98rem;
+}
+
+
+.team-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.team-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.team-card {
+    background: var(--white);
+    padding: 28px 20px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.team-avatar {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.team-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+}
+
+.team-role {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.team-card p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+
+.values-section {
+    text-align: center;
+    background: #FDF7F2;
+    padding: 40px 25px;
+    border-radius: 16px;
+    border: 1px solid #F0E2D8;
+}
+
+.values-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.value-item {
+    padding: 15px;
+}
+
+.value-icon {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.value-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.value-item p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+
+.main-footer {
+    background: var(--color-title);
+    color: var(--white);
+    padding: 45px 0 18px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+}
+
+.footer-logo {
+    font: 700 1.6rem var(--font-heading);
+    margin-bottom: 8px;
+}
+
+.footer-col p, .footer-col li {
+    font-size: 0.8rem;
+    color: #E0D6D1;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 6px; }
+.footer-col h4 { color: var(--white); margin-bottom: 10px; }
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.74rem;
+    color: #B3A49C;
+}
+
+@media (max-width: 900px) {
+    .header-container { flex-direction: column; }
+    .footer-content { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .footer-content { grid-template-columns: 1fr; }
+    .team-grid, .values-grid { grid-template-columns: 1fr; }
+}

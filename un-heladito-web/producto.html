@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Producto — Un Heladito</title>
+    <title id="page-title">Producto — Un Heladito</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -23,49 +22,39 @@
             <ul>
                 <li><a href="index.html" class="nav-link">Inicio</a></li>
                 <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
                 <li><a href="contacto.html" class="nav-link">Contacto</a></li>
             </ul>
         </nav>
 
         <div class="header-actions">
-            <a href="carrito.html" class="btn-cart">🛒 Carrito (<span id="cart-count">0</span>)</a>
+            <a href="catalogo.html" class="btn-cart">🛒 Carrito (0)</a>
         </div>
     </div>
 </header>
 
 <main class="product-detail">
-    <div class="breadcrumb">Inicio › Categoría › Chocolate Belga 70%</div>
+    <div class="breadcrumb" id="breadcrumb">Inicio › Carga...</div>
 
     <section class="product-layout">
         <div class="product-gallery">
-            <img class="product-main-image"
-                 src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&w=900&q=80"
-                 alt="Chocolate Belga 70%">
-
-            <div class="thumbnails">
-                <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&w=200&q=80" alt="Vista 1">
-                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=200&q=80" alt="Vista 2">
-                <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=200&q=80" alt="Vista 3">
-            </div>
+            <img id="p-img-main" class="product-main-image" src="" alt="Cargando...">
         </div>
 
         <div class="product-info">
-            <h1>Chocolate Belga 70%</h1>
-            <div class="detail-price">$4.500 CLP</div>
+            <h1 id="p-title">Cargando...</h1>
+            <p id="p-code" style="font-size: 0.85rem; color: #3B9A9C; font-weight: 700; margin-bottom: 8px;"></p>
+            <div class="detail-price" id="p-price">$0 CLP</div>
 
             <hr>
 
-            <p>
-                Cacao belga de alta pureza con hojuelas de chocolate
-                semiamargo. Una preparación cremosa y artesanal,
-                pensada para los amantes del chocolate.
-            </p>
+            <p id="p-desc">Cargando descripción del producto...</p>
 
             <hr>
 
             <div class="quantity">
                 <strong>Cantidad</strong>
-                <select id="product-quantity">
+                <select id="p-qty">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -74,10 +63,9 @@
                 </select>
             </div>
 
-            <button id="add-product" class="btn btn-primary add-large" type="button">
+            <button class="btn btn-primary add-large">
                 Añadir al carrito 🛒
             </button>
-            <p id="product-alert" class="alert hidden" style="margin-top:12px"></p>
 
             <hr>
         </div>
@@ -85,13 +73,7 @@
 
     <section class="related">
         <h3>Productos relacionados</h3>
-
-        <div class="related-grid">
-            <img src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?auto=format&fit=crop&w=400&q=80" alt="Producto relacionado">
-            <img src="https://images.unsplash.com/photo-1488900128323-21503983257e?auto=format&fit=crop&w=400&q=80" alt="Producto relacionado">
-            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=400&q=80" alt="Producto relacionado">
-            <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=400&q=80" alt="Producto relacionado">
-            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=400&q=80" alt="Producto relacionado">
+        <div class="related-grid" id="related-grid">
         </div>
     </section>
 </main>
@@ -134,6 +116,8 @@
     </div>
 </footer>
 
-<script src="js/auth.js"></script><script src="js/carrito.js"></script><script src="js/producto.js"></script>
+
+<script src="js/producto.js"></script>
+
 </body>
 </html>
