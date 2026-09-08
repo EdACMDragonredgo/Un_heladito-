@@ -82,4 +82,29 @@ Object.keys(productos)
         `;
         relatedGrid.appendChild(card);
     });
+
+    const addButton = document.querySelector(".add-large");
+    const qtySelect = document.getElementById("p-qty");
+
+    if (addButton) {
+        addButton.addEventListener("click", () => {
+            const quantity = Number(qtySelect.value);
+            addToCart({
+                id,
+                name: p.nombre,
+                price: Number(p.precio.replace(/[^\d]/g, "")),
+                image: p.imagen
+            }, quantity);
+
+            const originalText = addButton.textContent;
+            addButton.textContent = "✓ Agregado al carrito";
+            addButton.disabled = true;
+
+            setTimeout(() => {
+                addButton.textContent = originalText;
+                addButton.disabled = false;
+            }, 1000);
+        });
+    }
+
 });

@@ -24,23 +24,31 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     grid.querySelectorAll(".buy-btn").forEach(btn=>{
         btn.addEventListener("click",()=>{
-            const cart=JSON.parse(localStorage.getItem("unheladito_cart")||"[]");
             const p=products.find(x=>x.id===btn.dataset.id);
-            if(!p) return;
-            const item=cart.find(x=>x.id===p.id);
-            if(item) item.qty+=1;
-            else cart.push({id:p.id, name:p.name, price:p.price, qty:1});
-            localStorage.setItem("unheladito_cart",JSON.stringify(cart));
-            updateCart();
+            if(!p || p.stock <= 0) return;
+
+            const cart=getCart();
+            const existing=cart.find(x=>x.id===p.id);
+            const currentQty=existing ? existing.qty : 0;
+
+            if(currentQty >= p.stock){
+                alert(`No puedes agregar más unidades de "${p.name}". Stock disponible: ${p.stock}.`);
+                return;
+            }
+
+            addToCart({
+                id:p.id,
+                name:p.name,
+                price:p.price,
+                image:p.image
+            });
+
+            btn.textContent="✓ Agregado";
+            setTimeout(()=>btn.textContent="Agregar al carrito",900);
         });
     });
 
-    function updateCart(){
-        const cart=JSON.parse(localStorage.getItem("unheladito_cart")||"[]");
-        const count=cart.reduce((sum,i)=>sum+i.qty,0);
-        document.getElementById("cart-count").textContent=count;
-    }
-    updateCart();
+    updateCartCounters();
 });
 
 function formatCLP(value){

@@ -155,10 +155,11 @@ h1, h2, h3, h4 {
     margin: 0 auto 80px auto;
     padding: 0 20px;
 }
+/*La huevada de separaciones*/
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     justify-content: center;
 }
@@ -342,4 +343,8 @@ h1, h2, h3, h4 {
     .btn-add {
         width: 100%;
     }
+}
+.product-image-link {
+    display: block;
+    cursor: pointer;
 }
