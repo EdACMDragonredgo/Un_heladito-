@@ -1,69 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Un Heladito - Contacto y Registro</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/main.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — Un Heladito</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/contacto.css">
 </head>
-
 <body>
 
- <header class="main-header">
-    <h1>🍦 Un Heladito</h1>
+<header class="main-header">
+  <div class="header-container">
+    <a class="brand-logo" href="index.html"><span class="logo-icon">🍦</span><span class="logo-text">Un Heladito</span></a>
     <nav class="main-nav">
-      <ul>
-        <li><a href="index.html" class="nav-link">Inicio</a></li>
-        <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
-        <li><a href="nosotros.html" class="nav-link">Nosotros & Sucursales</a></li>
-        <li><a href="estadisticas.html" class="nav-link">Estadísticas</a></li>
-        <li><a href="contacto.html" class="nav-link active">Contacto / Registro</a></li>
-      </ul>
-    </nav>
-  </header>
+            <ul>
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+  </div>
+</header>
+<main class="form-section">
+  <div class="form-card contact-box">
+    <div class="page-title" style="padding:5px 0 22px"><h1>Contacto</h1><p>Envíanos una consulta o comentario.</p></div>
+    <div id="contact-alert" class="alert hidden"></div>
+    <form id="contact-form">
+      <div class="form-grid">
+        <div class="form-group"><label for="cname">Nombre completo</label><input class="form-control" id="cname" required></div>
+        <div class="form-group"><label for="cemail">Correo electrónico</label><input class="form-control" id="cemail" type="email" required></div>
+        <div class="form-group full"><label for="subject">Asunto</label><input class="form-control" id="subject" required></div>
+        <div class="form-group full"><label for="message">Mensaje</label><textarea class="form-control" id="message" rows="6" required></textarea></div>
+      </div>
+      <button class="btn btn-primary" style="width:100%;margin-top:18px">ENVIAR MENSAJE</button>
+    </form>
+  </div>
+</main>
 
-    <main>
-        <section class="form-section container">
-            <div class="section-title">
-                <h2>Únete al Club "Puntos Heladitos"</h2>
-                <p>Crea tu cuenta para recibir ofertas exclusivas y personalizar tus preferencias alimentarias.</p>
-            </div>
+<footer class="main-footer">
+    <div class="container footer-content">
+        <div class="footer-col">
+            <div class="footer-logo">🍦 Un Heladito</div>
+            <p>Heladería artesanal y tienda e-commerce con productos naturales.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Puntos de Venta</h4>
+            <ul>
+                <li>📍 Santiago · Viña del Mar · Valparaíso</li>
+                <li>📍 Concepción · La Serena · Antofagasta</li>
+                <li>📍 Temuco · Puerto Montt · Rancagua</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="registro.html">Registro</a></li>
+                <li><a href="login.html">Iniciar sesión</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Proyecto</h4>
+            <p>DSY1104 — Desarrollo Web · Duoc UC</p>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2026 Un Heladito SpA</div>
+</footer>
 
-            <form id="registroForm" class="custom-form" novalidate>
-                <div class="form-group">
-                    <label for="nombre">Nombre Completo *</label>
-                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ej. Constanza Silva" autocomplete="name">
-                    <span class="error-message" id="error-nombre"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Correo Electrónico *</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="nombre@ejemplo.cl" autocomplete="email">
-                    <span class="error-message" id="error-email"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="preferencia">Preferencia de Alérgenos / Dieta</label>
-                    <select id="preferencia" name="preferencia" class="form-control">
-                        <option value="">Selecciona tu preferencia (Opcional)</option>
-                        <option value="sin-lactosa">Sin Lactosa / Intolerante</option>
-                        <option value="vegano">100% Vegano (Sorbetes)</option>
-                        <option value="sin-azucar">Sin Azúcar Añadida (Keto)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Contraseña Segura *</label>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Mínimo 8 caracteres, números y letras">
-                    <span class="error-message" id="error-password"></span>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Crear Cuenta</button>
-                <div id="form-success" class="success-banner" style="display:none; margin-top:15px; color:#2E7D32; font-weight:bold;"></div>
-            </form>
-        </section>
-    </main>
-
-
-</body>
+<script>
+document.getElementById("contact-form").addEventListener("submit",function(e){
+  e.preventDefault();
+  const a=document.getElementById("contact-alert");
+  a.textContent="Mensaje enviado satisfactoriamente (simulación).";
+  a.className="alert success";
+  this.reset();
+});
+</script>
+</body></html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro — Un Heladito</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/registro.css">
+</head>
+<body>
+
+<header class="main-header">
+  <div class="header-container">
+    <a class="brand-logo" href="index.html"><span class="logo-icon">🍦</span><span class="logo-text">Un Heladito</span></a>
+    <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+  </div>
+</header>
+<main class="form-section">
+  <div class="form-card auth-box">
+    <div class="page-title" style="padding:5px 0 22px">
+      <h1>Crear cuenta</h1>
+      <p>Regístrate como cliente o, para esta entrega académica, crea una cuenta administrativa con correo @duoc.cl.</p>
+    </div>
+    <div id="register-alert" class="alert hidden"></div>
+    <form id="register-form">
+      <div class="form-grid">
+        <div class="form-group full">
+          <label for="name">Nombre completo</label>
+          <input class="form-control" id="name" type="text" required>
+        </div>
+        <div class="form-group full">
+          <label for="email">Correo electrónico</label>
+          <input class="form-control" id="email" type="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input class="form-control" id="password" type="password" minlength="8" required>
+        </div>
+        <div class="form-group">
+          <label for="confirm">Confirmar contraseña</label>
+          <input class="form-control" id="confirm" type="password" minlength="8" required>
+        </div>
+        <div class="form-group full">
+          <label for="role">Tipo de cuenta</label>
+          <select class="form-control" id="role">
+            <option value="Cliente">Cliente / Comprador</option>
+            <option value="Administrador">Administrador</option>
+          </select>
+          <small id="role-help" class="help">Las cuentas de cliente pueden usar cualquier correo válido.</small>
+        </div>
+      </div>
+      <button class="btn btn-primary" style="width:100%;margin-top:18px">CREAR CUENTA</button>
+    </form>
+    <p class="auth-links">¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a></p>
+  </div>
+</main>
+
+<footer class="main-footer">
+    <div class="container footer-content">
+        <div class="footer-col">
+            <div class="footer-logo">🍦 Un Heladito</div>
+            <p>Heladería artesanal y tienda e-commerce con productos naturales.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Puntos de Venta</h4>
+            <ul>
+                <li>📍 Santiago · Viña del Mar · Valparaíso</li>
+                <li>📍 Concepción · La Serena · Antofagasta</li>
+                <li>📍 Temuco · Puerto Montt · Rancagua</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="registro.html">Registro</a></li>
+                <li><a href="login.html">Iniciar sesión</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Proyecto</h4>
+            <p>DSY1104 — Desarrollo Web · Duoc UC</p>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2026 Un Heladito SpA</div>
+</footer>
+
+<script src="js/auth.js"></script><script src="js/registro.js"></script>
+</body></html>

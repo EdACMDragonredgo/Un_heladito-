@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto — Un Heladito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/producto.css">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="header-container">
+        <a href="index.html" class="brand-logo">
+            <span class="logo-icon">🍦</span>
+            <span class="logo-text">Un Heladito</span>
+        </a>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <a href="carrito.html" class="btn-cart">🛒 Carrito (<span id="cart-count">0</span>)</a>
+        </div>
+    </div>
+</header>
+
+<main class="product-detail">
+    <div class="breadcrumb">Inicio › Categoría › Chocolate Belga 70%</div>
+
+    <section class="product-layout">
+        <div class="product-gallery">
+            <img class="product-main-image"
+                 src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&w=900&q=80"
+                 alt="Chocolate Belga 70%">
+
+            <div class="thumbnails">
+                <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&w=200&q=80" alt="Vista 1">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=200&q=80" alt="Vista 2">
+                <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=200&q=80" alt="Vista 3">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h1>Chocolate Belga 70%</h1>
+            <div class="detail-price">$4.500 CLP</div>
+
+            <hr>
+
+            <p>
+                Cacao belga de alta pureza con hojuelas de chocolate
+                semiamargo. Una preparación cremosa y artesanal,
+                pensada para los amantes del chocolate.
+            </p>
+
+            <hr>
+
+            <div class="quantity">
+                <strong>Cantidad</strong>
+                <select id="product-quantity">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <button id="add-product" class="btn btn-primary add-large" type="button">
+                Añadir al carrito 🛒
+            </button>
+            <p id="product-alert" class="alert hidden" style="margin-top:12px"></p>
+
+            <hr>
+        </div>
+    </section>
+
+    <section class="related">
+        <h3>Productos relacionados</h3>
+
+        <div class="related-grid">
+            <img src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?auto=format&fit=crop&w=400&q=80" alt="Producto relacionado">
+            <img src="https://images.unsplash.com/photo-1488900128323-21503983257e?auto=format&fit=crop&w=400&q=80" alt="Producto relacionado">
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=400&q=80" alt="Producto relacionado">
+            <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=400&q=80" alt="Producto relacionado">
+            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=400&q=80" alt="Producto relacionado">
+        </div>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="container footer-content">
+        <div class="footer-col">
+            <div class="footer-logo">🍦 Un Heladito</div>
+            <p>Cadena de heladerías artesanales y tienda e-commerce.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Puntos de Venta</h4>
+            <ul>
+                <li>📍 Santiago | Viña del Mar</li>
+                <li>📍 Valparaíso | Concepción</li>
+                <li>📍 La Serena | Antofagasta</li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="registro.html">Registro</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Conéctate</h4>
+            <p>#UnHeladitoDeFelicidad</p>
+            <p>Instagram · TikTok · WhatsApp</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Un Heladito SpA — Proyecto DSY1104
+    </div>
+</footer>
+
+<script src="js/auth.js"></script><script src="js/carrito.js"></script><script src="js/producto.js"></script>
+</body>
+</html>

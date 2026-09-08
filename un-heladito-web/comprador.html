@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vista de Comprador — Un Heladito</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/comprador.css">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="header-container">
+        <a class="brand-logo" href="index.html">
+            <span class="logo-icon">🍦</span>
+            <span class="logo-text">Un Heladito</span>
+        </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a class="btn-cart" href="carrito.html">🛒 Carrito <span id="cart-count">0</span></a>
+        </div>
+    </div>
+</header>
+
+<main class="dashboard">
+  <div class="dashboard-head">
+    <div><h1>Vista de Comprador</h1><p id="welcome">Cargando...</p></div>
+    <button id="logout" class="btn btn-outline">Cerrar sesión</button>
+  </div>
+
+  <section class="panel">
+    <div class="panel-head">
+      <div><h2>Catálogo disponible</h2><p class="help">Puedes consultar productos y agregarlos al carrito.</p></div>
+      <a class="btn btn-secondary" href="catalogo.html">Ver catálogo completo</a>
+    </div>
+    <div id="buyer-products" class="buyer-products products-mini"></div>
+  </section>
+</main>
+
+<footer class="main-footer">
+    <div class="container footer-content">
+        <div class="footer-col">
+            <div class="footer-logo">🍦 Un Heladito</div>
+            <p>Heladería artesanal y tienda e-commerce con productos naturales.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Puntos de Venta</h4>
+            <ul>
+                <li>📍 Santiago · Viña del Mar · Valparaíso</li>
+                <li>📍 Concepción · La Serena · Antofagasta</li>
+                <li>📍 Temuco · Puerto Montt · Rancagua</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="registro.html">Registro</a></li>
+                <li><a href="login.html">Iniciar sesión</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Proyecto</h4>
+            <p>DSY1104 — Desarrollo Web · Duoc UC</p>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2026 Un Heladito SpA</div>
+</footer>
+
+<script src="js/auth.js"></script><script src="js/carrito.js"></script><script src="js/comprador.js"></script>
+</body></html>

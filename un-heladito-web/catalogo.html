@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo — Un Heladito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/catalogo.css">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="header-container">
+        <a href="index.html" class="brand-logo">
+            <span class="logo-icon">🍦</span>
+            <span class="logo-text">Un Heladito</span>
+        </a>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <a href="carrito.html" class="btn-cart">🛒 Carrito (<span id="cart-count">0</span>)</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="page-title">
+        <h1>PRODUCTOS</h1>
+        <p>Descubre nuestros helados y postres artesanales.</p>
+    </section>
+
+    <section class="catalog">
+        <div class="products-grid">
+            
+<article class="product-card">
+    <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?auto=format&fit=crop&w=600&q=80" alt="Chocolate Belga 70%">
+    <div class="card-body">
+        <h3>Chocolate Belga 70%</h3>
+        <p class="product-code">Código: HT001</p>
+        <p class="product-desc">Cacao belga de alta pureza con hojuelas de chocolate.</p>
+        <div class="card-footer">
+            <span class="product-price">$4.500 CLP</span>
+            <button type="button" class="btn-add catalog-add" data-id="HT001">Agregar al carrito</button>
+        </div>
+    </div>
+</article>
+
+<article class="product-card">
+    <img src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?auto=format&fit=crop&w=600&q=80" alt="Frutilla & Albahaca">
+    <div class="card-body">
+        <h3>Frutilla & Albahaca</h3>
+        <p class="product-code">Código: SV001</p>
+        <p class="product-desc">Frutillas frescas con una sutil nota de albahaca.</p>
+        <div class="card-footer">
+            <span class="product-price">$3.900 CLP</span>
+            <button type="button" class="btn-add catalog-add" data-id="SV001">Agregar al carrito</button>
+        </div>
+    </div>
+</article>
+
+<article class="product-card">
+    <img src="https://images.unsplash.com/photo-1529790912688-db5fec227b5a?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Maracuyá & Leche Condensada">
+    <div class="card-body">
+        <h3>Maracuyá & Leche Condensada</h3>
+        <p class="product-code">Código: PA001</p>
+        <p class="product-desc">Paleta de maracuyá con centro de leche condensada.</p>
+        <div class="card-footer">
+            <span class="product-price">$2.200 CLP</span>
+            <button type="button" class="btn-add catalog-add" data-id="PA001">Agregar al carrito</button>
+        </div>
+    </div>
+</article>
+
+<article class="product-card">
+    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80" alt="Sundae Caramelo Salado">
+    <div class="card-body">
+        <h3>Sundae Caramelo Salado</h3>
+        <p class="product-code">Código: PC001</p>
+        <p class="product-desc">Crema americana, caramelo con sal y nuez pecana.</p>
+        <div class="card-footer">
+            <span class="product-price">$5.200 CLP</span>
+            <button type="button" class="btn-add catalog-add" data-id="PC001">Agregar al carrito</button>
+        </div>
+    </div>
+</article>
+
+<article class="product-card">
+    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="Mango Tropical">
+    <div class="card-body">
+        <h3>Sorbete de Mango Maracuyá</h3>
+        <p class="product-code">Código: SV002</p>
+        <p class="product-desc">Helado refrescante de mango natural.</p>
+        <div class="card-footer">
+            <span class="product-price">$4.100 CLP</span>
+            <button type="button" class="btn-add catalog-add" data-id="SV002">Agregar al carrito</button>
+        </div>
+    </div>
+</article>
+
+<article class="product-card">
+    <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=600&q=80" alt="Chocolate & Avellana">
+    <div class="card-body">
+        <h3>Helado de Manjar Artesanal Granizado</h3>
+        <p class="product-code">Código: HT003</p>
+        <p class="product-desc">Chocolate cremoso con avellanas tostadas.</p>
+        <div class="card-footer">
+            <span class="product-price">$4.700 CLP</span>
+            <button type="button" class="btn-add catalog-add" data-id="HT003">Agregar al carrito</button>
+        </div>
+    </div>
+</article>
+
+<article class="product-card">
+    <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=600&q=80" alt="Sorbete de Limón">
+    <div class="card-body">
+        <h3>Sorbete de Limón</h3>
+        <p class="product-code">Código: SV003</p>
+        <p class="product-desc">Sorbete fresco de limón, ligero y refrescante.</p>
+        <div class="card-footer">
+            <span class="product-price">$3.600 CLP</span>
+            <button type="button" class="btn-add catalog-add" data-id="SV003">Agregar al carrito</button>
+        </div>
+    </div>
+</article>
+
+<article class="product-card">
+    <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=600&q=80" alt="Vainilla Artesanal">
+    <div class="card-body">
+        <h3>Helado de Vainilla de Madagascar</h3>
+        <p class="product-code">Código: HT002</p>
+        <p class="product-desc">Vainilla artesanal con textura cremosa.</p>
+        <div class="card-footer">
+            <span class="product-price">$4.000 CLP</span>
+            <button type="button" class="btn-add catalog-add" data-id="HT002">Agregar al carrito</button>
+        </div>
+    </div>
+</article>
+
+        </div>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="container footer-content">
+        <div class="footer-col">
+            <div class="footer-logo">🍦 Un Heladito</div>
+            <p>Cadena de heladerías artesanales y tienda e-commerce.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Puntos de Venta</h4>
+            <ul>
+                <li>📍 Santiago | Viña del Mar</li>
+                <li>📍 Valparaíso | Concepción</li>
+                <li>📍 La Serena | Antofagasta</li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="registro.html">Registro</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Conéctate</h4>
+            <p>#UnHeladitoDeFelicidad</p>
+            <p>Instagram · TikTok · WhatsApp</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Un Heladito SpA — Proyecto DSY1104
+    </div>
+</footer>
+
+<script src="js/auth.js"></script><script src="js/carrito.js"></script><script src="js/catalogo.js"></script>
+</body>
+</html>

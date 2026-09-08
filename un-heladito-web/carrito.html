@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrito — Un Heladito</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/comprador.css">
+<style>
+.cart-page{max-width:1000px;margin:auto;padding:40px 20px 70px}
+.cart-list{display:grid;gap:12px}
+.cart-item{display:grid;grid-template-columns:1fr auto auto;gap:20px;align-items:center;background:#fff;border:1px solid #F0EAE1;border-radius:12px;padding:18px;box-shadow:0 5px 18px rgba(92,61,46,.06)}
+.cart-item h3{margin-bottom:4px;font-size:1.05rem}
+.cart-item p{color:var(--text-secondary);font-size:.82rem}
+.cart-price{font-weight:700;color:var(--color-title);white-space:nowrap}
+.cart-controls{display:flex;align-items:center;gap:8px}
+.qty-btn{width:34px;height:34px;border:1px solid var(--border);background:#fff;border-radius:8px;cursor:pointer;font-weight:700}
+.qty-value{min-width:24px;text-align:center;font-weight:700}
+.remove-btn{border:0;background:transparent;color:var(--danger);font-weight:700;cursor:pointer;font-size:.8rem}
+.cart-summary{margin-top:22px;padding:22px;background:#fff;border:1px solid #F0EAE1;border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.cart-summary strong{font-size:1.5rem;color:var(--color-title)}
+.cart-actions{display:flex;gap:10px;flex-wrap:wrap}
+.empty-cart{text-align:center;padding:50px 20px;background:#fff;border:1px dashed var(--border);border-radius:12px;color:var(--text-secondary)}
+@media(max-width:700px){.cart-item{grid-template-columns:1fr}.cart-summary{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<header class="main-header">
+    <div class="header-container">
+        <a class="brand-logo" href="index.html"><span class="logo-icon">🍦</span><span class="logo-text">Un Heladito</span></a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a class="btn-cart" href="carrito.html">🛒 Carrito <span id="cart-count">0</span></a>
+        </div>
+    </div>
+</header>
+
+<main class="cart-page">
+    <div class="page-title" style="padding-left:0;padding-right:0">
+        <h1>Tu carrito</h1>
+        <p>Revisa tus productos antes de continuar.</p>
+    </div>
+
+    <section id="cart-content"></section>
+</main>
+
+<footer class="main-footer">
+    <div class="container footer-content">
+        <div class="footer-col"><div class="footer-logo">🍦 Un Heladito</div><p>Heladería artesanal y tienda e-commerce.</p></div>
+        <div class="footer-col"><h4>Navegación</h4><ul><li><a href="catalogo.html">Catálogo</a></li><li><a href="comprador.html">Vista de comprador</a></li></ul></div>
+        <div class="footer-col"><h4>Proyecto</h4><p>DSY1104 — Desarrollo Web · Duoc UC</p></div>
+    </div>
+    <div class="footer-bottom">© 2026 Un Heladito SpA</div>
+</footer>
+
+<script src="js/auth.js"></script>
+<script src="js/carrito.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", ()=>{
+    const content=document.getElementById("cart-content");
+
+    function renderCart(){
+        const cart=getCart();
+
+        if(cart.length===0){
+            content.innerHTML=`
+                <div class="empty-cart">
+                    <h2>Tu carrito está vacío</h2>
+                    <p>Agrega productos desde el catálogo para verlos aquí.</p>
+                    <br>
+                    <a class="btn btn-primary" href="catalogo.html">Ir al catálogo</a>
+                </div>`;
+            updateCartBadges([]);
+            return;
+        }
+
+        const products=getProducts();
+
+        let total=0;
+        content.innerHTML=`
+            <div class="cart-list">
+                ${cart.map(item=>{
+                    const product=products.find(p=>p.id===item.id);
+                    const stock=product ? Number(product.stock) : Number(item.qty);
+                    const price=product ? Number(product.price) : Number(item.price);
+                    const name=product ? product.name : item.name;
+                    const lineTotal=price * Number(item.qty);
+                    total += lineTotal;
+
+                    return `
+                    <article class="cart-item" data-id="${escapeHtml(item.id)}">
+                        <div>
+                            <h3>${escapeHtml(name)}</h3>
+                            <p>${formatCLP(price)} por unidad · Stock disponible: ${stock}</p>
+                        </div>
+                        <div class="cart-controls">
+                            <button class="qty-btn decrease" type="button">−</button>
+                            <span class="qty-value">${item.qty}</span>
+                            <button class="qty-btn increase" type="button">+</button>
+                            <button class="remove-btn" type="button">Eliminar</button>
+                        </div>
+                        <div class="cart-price">${formatCLP(lineTotal)}</div>
+                    </article>`;
+                }).join("")}
+            </div>
+            <div class="cart-summary">
+                <div><span>Total</span><strong>${formatCLP(total)}</strong></div>
+                <div class="cart-actions">
+                    <button id="clear-cart" class="btn btn-light" type="button">Vaciar carrito</button>
+                    <a href="catalogo.html" class="btn btn-secondary">Seguir comprando</a>
+                </div>
+            </div>
+        `;
+
+        content.querySelectorAll(".cart-item").forEach(row=>{
+            const id=row.dataset.id;
+            const product=products.find(p=>p.id===id);
+            const stock=product ? Number(product.stock) : 0;
+
+            row.querySelector(".decrease").addEventListener("click",()=>{
+                const item=getCart().find(x=>x.id===id);
+                if(item) setCartQuantity(id, Number(item.qty)-1, stock);
+                renderCart();
+            });
+
+            row.querySelector(".increase").addEventListener("click",()=>{
+                const item=getCart().find(x=>x.id===id);
+                if(item) {
+                    const result=product ? addToCart(product,1) : {ok:false,message:"Este producto ya no existe en el catálogo."};
+                    if(!result.ok) alert(result.message);
+                }
+                renderCart();
+            });
+
+            row.querySelector(".remove-btn").addEventListener("click",()=>{
+                removeFromCart(id);
+                renderCart();
+            });
+        });
+
+        document.getElementById("clear-cart").addEventListener("click",()=>{
+            if(confirm("¿Vaciar todo el carrito?")){
+                clearCart();
+                renderCart();
+            }
+        });
+    }
+
+    function escapeHtml(text){
+        return String(text).replace(/[&<>"']/g,m=>({
+            "&":"&amp;","<":"&lt;",">":"&gt;",
+            '"':"&quot;","'":"&#039;"
+        }[m]));
+    }
+
+    renderCart();
+});
+</script>
+</body>
+</html>
