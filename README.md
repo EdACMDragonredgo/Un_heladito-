@@ -8,33 +8,33 @@ Proyecto desarrollado para DSY1104 — Desarrollo Web, Duoc UC.
 
 Funcionalidades
 
-🏠 Página de inicio.
+Página de inicio.
 
-🍨 Catálogo de productos.
+atálogo de productos.
 
-🔎 Detalle de productos.
+Detalle de productos.
 
-🛒 Carrito de compras.
+Carrito de compras.
 
-➕ Agregar productos al carrito.
+Agregar productos al carrito.
 
-➖ Aumentar o disminuir cantidades.
+Aumentar o disminuir cantidades.
 
-❌ Eliminar productos.
+Eliminar productos.
 
-🧹 Vaciar el carrito.
+Vaciar el carrito.
 
-💾 Persistencia mediante localStorage.
+Persistencia mediante localStorage.
 
-👤 Registro e inicio de sesión.
+Registro e inicio de sesión.
 
-👥 Roles de Cliente y Administrador.
+Roles de Cliente y Administrador.
 
-📩 Formulario de contacto.
+Formulario de contacto.
 
-📍 Selección de región y comuna.
+Selección de región y comuna.
 
-🛠️ Gestión administrativa de productos y usuarios.
+Gestión administrativa de productos y usuarios.
 
 Estructura
 
