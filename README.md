@@ -295,4 +295,4 @@ La estructura del proyecto proporciona una base organizada para mantener el siti
 
 **Tecnologías principales:** React, Vite, JavaScript, CSS y React Router.
 
-**Repositorio:** [Un Heladito React en GitHub](https://github.com/Edu-Acevedo/unHeladito-React).
+**Repositorio:** [Un Heladito React en GitHub](https://github.com/EdACMDragonredgo/Un_heladito-).
