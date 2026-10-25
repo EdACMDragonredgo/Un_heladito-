@@ -1,105 +1,126 @@
-# 🍦 Un Heladito — Página web de heladería artesanal
+# 🍦 Un Heladito — Sitio web de heladería artesanal
 
 ## 1. Descripción del proyecto
 
-**Un Heladito** es una página web dedicada a una heladería artesanal, desarrollada con React y Vite. Su objetivo es ofrecer una experiencia de navegación sencilla y agradable, permitiendo a los usuarios explorar productos, consultar precios, agregar helados al carrito de compras y completar un proceso de compra de demostración.
+**Un Heladito** es un sitio web desarrollado para una heladería artesanal, cuyo propósito es ofrecer una experiencia digital agradable, intuitiva y accesible para explorar productos, conocer la empresa y realizar compras en línea.
 
-El proyecto incorpora información sobre la empresa, un catálogo de productos, ofertas, categorías, un blog, una sección de contacto y un panel de administración.
+El sitio permite consultar un catálogo de helados, revisar sus características y precios, buscar productos, aplicar filtros, agregar artículos al carrito y completar un proceso de compra. También incorpora secciones informativas, como Nosotros, Contacto y Blog, además de un panel de administración para gestionar la información comercial.
 
-La página utiliza una arquitectura de aplicación de página única (SPA), por lo que las distintas secciones se muestran mediante rutas internas de React Router, sin necesidad de crear un archivo HTML independiente para cada sección.
+El proyecto está desarrollado con React y Vite, utilizando una arquitectura SPA (*Single Page Application*). De esta manera, las diferentes secciones se muestran mediante rutas internas sin necesidad de crear un documento HTML independiente para cada página.
 
 ## 2. Objetivos del proyecto
 
-- Desarrollar una página web para presentar y ofrecer productos de una heladería artesanal.
-- Facilitar la navegación entre las diferentes secciones del sitio.
-- Implementar un catálogo con búsqueda, filtros y detalles de productos.
-- Incorporar un carrito de compras y un proceso de compra de demostración.
-- Presentar información sobre la historia de la empresa y sus medios de contacto.
-- Implementar una interfaz de administración para gestionar productos, categorías y pedidos simulados.
-- Aplicar React, componentes reutilizables y estilos adaptables a diferentes tamaños de pantalla.
+### Objetivo general
+
+Desarrollar un sitio web funcional para una heladería artesanal que facilite la presentación de productos, la navegación por el catálogo y la experiencia de compra, proporcionando una interfaz visual coherente y adaptable a distintos dispositivos.
+
+### Objetivos específicos
+
+- Diseñar una interfaz atractiva y fácil de utilizar.
+- Implementar un catálogo organizado por categorías.
+- Incorporar búsqueda, filtros, información de productos y ofertas.
+- Desarrollar un carrito de compras con cálculo automático de cantidades y totales.
+- Implementar un flujo de compra con validación de formularios.
+- Presentar la historia, los valores y los medios de contacto de la empresa.
+- Incorporar herramientas para administrar productos, categorías y pedidos.
+- Aplicar componentes reutilizables y navegación mediante React Router.
+- Verificar el comportamiento del sitio mediante pruebas funcionales y técnicas.
+- Preparar la compilación del proyecto para su publicación en la nube.
 
 ## 3. Tecnologías utilizadas
 
-| Tecnología | Uso |
+| Tecnología | Función |
 |---|---|
-| HTML5 | Estructura base de la página web. |
-| CSS3 | Estilos y presentación visual. |
-| JavaScript | Lógica e interactividad del sitio. |
-| React | Construcción de componentes y vistas. |
-| Vite | Servidor de desarrollo y compilación del proyecto. |
-| React Router | Navegación interna entre las secciones. |
-| Bootstrap 5 | Componentes y diseño adaptable. |
-| localStorage | Almacenamiento local de datos de demostración. |
-| sessionStorage | Almacenamiento temporal de información de la sesión. |
-| Oxlint | Análisis estático del código. |
+| HTML5 | Estructura base del sitio web. |
+| CSS3 | Diseño visual, estilos y adaptación de la interfaz. |
+| JavaScript | Lógica e interactividad. |
+| React | Desarrollo de componentes y vistas reutilizables. |
+| Vite | Servidor de desarrollo y compilación para producción. |
+| React Router | Gestión de rutas y navegación interna. |
+| Bootstrap 5 | Componentes y herramientas de diseño adaptable. |
+| localStorage | Persistencia local de información de demostración. |
+| sessionStorage | Almacenamiento temporal durante la sesión. |
+| Oxlint | Análisis estático del código fuente. |
 
-## 4. Funcionalidades de la página web
+## 4. Funcionalidades principales
 
-### Página de inicio
-Presenta la identidad de Un Heladito y permite acceder a los principales contenidos del sitio.
+### 4.1. Página de inicio
 
-### Catálogo de productos
-Permite consultar los productos disponibles, visualizar sus precios, imágenes, descripciones, categorías y stock. Incluye búsqueda, filtros y ordenación.
+Presenta la identidad visual de Un Heladito, información destacada y accesos a las principales secciones del sitio.
 
-### Detalle de productos
-Muestra información específica de cada producto y permite seleccionar cantidades para agregarlas al carrito, respetando la disponibilidad registrada.
+### 4.2. Catálogo de productos
 
-### Categorías y ofertas
-Permite explorar productos por categoría y consultar aquellos identificados como ofertas.
+Permite visualizar los productos disponibles con sus nombres, imágenes, descripciones, precios, categorías y disponibilidad. Incorpora herramientas de búsqueda, filtrado y ordenación para facilitar la exploración.
 
-### Carrito de compras
-Permite agregar productos, modificar cantidades, eliminar artículos y calcular el total de la compra.
+### 4.3. Detalle de productos
 
-### Proceso de compra
-Incluye un formulario para ingresar y validar los datos de entrega. El sitio genera pedidos de demostración y presenta resultados de pago aprobados o rechazados de manera simulada.
+Cada producto cuenta con una vista específica que permite consultar sus características y seleccionar la cantidad que se desea agregar al carrito, considerando el stock registrado.
 
-### Registro, inicio de sesión y cuenta
-Incluye vistas para registrar usuarios, iniciar sesión y consultar la sección personal de la cuenta.
+### 4.4. Categorías y ofertas
 
-### Sección Nosotros
-Presenta la historia de Un Heladito, el origen del emprendimiento y los valores asociados a la elaboración de helados artesanales.
+Organiza los helados por categorías y facilita la identificación de productos marcados como ofertas.
 
-### Contacto
-Incluye un formulario para ingresar datos personales, calificar la experiencia y escribir comentarios. Actualmente, el envío se simula dentro de la página y no envía correos a un servidor real.
+### 4.5. Carrito de compras
 
-### Blog
-Incluye una sección con publicaciones y vistas para consultar su contenido.
+Permite administrar los artículos seleccionados, modificar cantidades, eliminar productos y consultar el subtotal y el total de la compra.
 
-### Panel de administración
-Ofrece herramientas de demostración para crear, editar y eliminar productos, gestionar categorías, consultar usuarios y revisar pedidos registrados.
+### 4.6. Proceso de compra
 
-## 5. Navegación y rutas
+Incluye un formulario para ingresar los datos del cliente y la información necesaria para la entrega. Los campos se validan antes de continuar y se presenta el resultado correspondiente al proceso de compra de demostración.
 
-Las secciones de la página se gestionan mediante React Router.
+### 4.7. Registro e inicio de sesión
+
+Incluye vistas para el registro de usuarios, el inicio de sesión y la consulta de la sección personal de la cuenta.
+
+### 4.8. Sección Nosotros
+
+Presenta la historia de Un Heladito, el origen del emprendimiento y sus valores, destacando la elaboración de helados y la importancia de compartir momentos en familia.
+
+### 4.9. Contacto
+
+Ofrece un formulario para ingresar información de contacto y comentarios, con validación de los campos correspondientes.
+
+### 4.10. Blog
+
+Incluye una sección de publicaciones relacionadas con el contenido de la marca y vistas para consultar sus detalles.
+
+### 4.11. Panel de administración
+
+Dispone de una interfaz para gestionar productos y categorías, además de consultar información de usuarios y pedidos registrados en el entorno de demostración.
+
+## 5. Navegación del sitio
+
+El sitio utiliza React Router para presentar las diferentes vistas sin recargar un documento HTML independiente.
 
 | Ruta | Descripción |
 |---|---|
-| `/` | Página de inicio. |
+| `/` | Inicio. |
 | `/productos` | Catálogo de productos. |
 | `/productos/:id` | Detalle de un producto. |
-| `/categorias` | Categorías de productos. |
+| `/categorias` | Categorías. |
 | `/ofertas` | Productos en oferta. |
 | `/carrito` | Carrito de compras. |
-| `/checkout` | Formulario de compra. |
-| `/resultado-pago` | Resultado del pago simulado. |
+| `/checkout` | Proceso de compra. |
+| `/resultado-pago` | Resultado del pago de demostración. |
 | `/login` | Inicio de sesión. |
 | `/registro` | Registro de usuarios. |
-| `/mi-cuenta` | Información de la cuenta. |
-| `/nosotros` | Historia de la empresa. |
+| `/mi-cuenta` | Sección personal. |
+| `/nosotros` | Información de la empresa. |
 | `/contacto` | Formulario de contacto. |
-| `/blog` | Publicaciones del blog. |
+| `/blog` | Publicaciones. |
 | `/blog/:id` | Detalle de una publicación. |
 | `/admin` | Panel de administración. |
 
-La navegación se realiza dentro del mismo sitio web mediante rutas de React, sin crear un HTML independiente para cada sección.
+Las rutas permiten mantener una navegación ordenada y separar las responsabilidades de las diferentes vistas del sitio.
 
-## 6. Estructura del proyecto
+## 6. Arquitectura y organización
+
+El proyecto se organiza mediante componentes reutilizables, páginas, contextos, módulos de datos y servicios auxiliares.
 
 ```text
 un-heladito-react/
 ├── public/
-│   ├── images/
-│   └── favicon.svg
+│   └── images/
 ├── src/
 │   ├── components/
 │   │   ├── Navbar.jsx
@@ -150,52 +171,42 @@ un-heladito-react/
 └── README.md
 ```
 
-## 7. Requisitos previos
+La organización separa la interfaz, la navegación, los datos de demostración y las funciones auxiliares, haciendo más sencillo mantener y ampliar el proyecto.
 
-Para ejecutar el proyecto se necesita:
+## 7. Instalación y ejecución
 
-- Node.js compatible con la versión de Vite utilizada.
+### Requisitos
+
+- Node.js compatible con las dependencias del proyecto.
 - npm.
-- Un editor de código, como Visual Studio Code.
+- Un editor de código.
 - Un navegador web actualizado.
 
-## 8. Instalación y ejecución
+### Instalación
 
-### Paso 1. Descargar el proyecto
+Clonar el repositorio o descargar el proyecto y abrir una terminal en la carpeta raíz.
 
-Clonar el repositorio desde GitHub o descargarlo como archivo ZIP y extraerlo.
-
-### Paso 2. Abrir una terminal
-
-Ingresar a la carpeta raíz del proyecto, donde se encuentra `package.json`.
-
-### Paso 3. Instalar las dependencias
+Instalar las dependencias:
 
 ```bash
 npm install
 ```
 
-### Paso 4. Iniciar el servidor de desarrollo
+Iniciar el servidor de desarrollo:
 
 ```bash
 npm run dev
 ```
 
-Vite mostrará una dirección local, normalmente:
+Vite proporcionará una dirección local para abrir el sitio en el navegador, normalmente `http://localhost:5173`.
 
-```text
-http://localhost:5173
-```
-
-Abrir esa dirección en el navegador para visualizar la página web.
-
-### Paso 5. Compilar para producción
+### Compilación para producción
 
 ```bash
 npm run build
 ```
 
-El resultado de la compilación se genera en la carpeta `dist/`.
+El comando genera la versión compilada del sitio dentro de la carpeta `dist/`.
 
 Para previsualizar la compilación:
 
@@ -203,63 +214,85 @@ Para previsualizar la compilación:
 npm run preview
 ```
 
-### Analizar el código
-
-El proyecto también incluye el comando:
+### Análisis estático
 
 ```bash
 npm run lint
 ```
 
-Este comando utiliza Oxlint para analizar el código estáticamente.
+Este comando permite detectar problemas de código mediante Oxlint, siempre que el script correspondiente esté definido en `package.json`.
 
-## 9. Almacenamiento de datos
+## 8. Almacenamiento y gestión de datos
 
-La versión actual utiliza datos de demostración y almacenamiento del navegador para conservar información, dependiendo de la funcionalidad.
+El proyecto incorpora módulos de datos de demostración y mecanismos de almacenamiento en el navegador para conservar determinados cambios entre visitas, según la funcionalidad.
 
-Esto permite probar ciertas interacciones sin configurar una base de datos remota. Sin embargo, los datos guardados localmente no constituyen un sistema compartido entre distintos usuarios o dispositivos.
+Este enfoque permite demostrar el comportamiento del catálogo, las categorías y otras operaciones sin requerir necesariamente un servidor de datos.
 
-## 10. Pruebas del proyecto
+El almacenamiento local pertenece al navegador del usuario y no equivale a una base de datos centralizada. Por ello, los cambios realizados en un dispositivo no se sincronizan automáticamente con otros usuarios o equipos.
 
-La implementación de las pruebas automáticas queda pendiente para una etapa posterior del desarrollo.
+## 9. Pruebas y control de calidad
 
-El proyecto se entrega sin la suite de tests para que pueda diseñarse e implementarse posteriormente, verificando las funcionalidades, componentes, validaciones y operaciones de datos.
+La calidad del sitio se aborda mediante la validación del código y la comprobación de las funcionalidades principales.
 
-La ausencia de pruebas automáticas no significa que la página esté completamente validada. La compilación y el comportamiento de las funcionalidades deben comprobarse antes de publicar la versión definitiva.
+La suite de pruebas del proyecto contempla las siguientes áreas:
 
-## 11. Limitaciones actuales
+- **Gestión de productos:** consulta, creación, actualización y eliminación.
+- **Gestión de categorías:** creación, actualización y eliminación.
+- **Carrito de compras:** cálculo de unidades, importes y totales.
+- **Validación de formularios:** comprobación de campos obligatorios y datos de compra.
+- **Componentes React:** representación de los productos y comportamiento de los controles.
+- **Integridad de datos:** tratamiento de códigos inexistentes, duplicados y categorías asociadas a productos.
 
-Esta versión corresponde a una página web de demostración académica.
+Además de las pruebas automatizadas, el control de calidad contempla la revisión de la navegación, la compilación y el comportamiento de las vistas principales.
 
-- No dispone de un backend conectado a un servidor.
-- No utiliza una base de datos remota.
-- El registro y el inicio de sesión no constituyen un sistema de autenticación seguro.
-- Los pedidos y resultados de pago son simulados.
-- El formulario de contacto no envía mensajes a un servidor real.
-- La administración utiliza datos de demostración almacenados localmente.
+## 10. Publicación en la nube
 
-Por estas razones, el proyecto no debe considerarse un sistema comercial listo para procesar pagos reales o almacenar información sensible.
+El sitio utiliza Vite para generar archivos estáticos que pueden alojarse en un servicio de publicación web compatible.
 
-## 12. Publicación en la nube
+El proceso de publicación contempla:
 
-Para preparar el sitio para su publicación:
+1. Instalar las dependencias.
+2. Generar la compilación de producción con `npm run build`.
+3. Publicar el contenido de la carpeta `dist/`.
+4. Configurar la resolución de rutas para que React Router pueda mostrar las vistas internas al acceder directamente a una URL.
+5. Verificar la carga de recursos, la navegación y las funcionalidades principales desde el sitio publicado.
 
-1. Instalar las dependencias con `npm install`.
-2. Ejecutar `npm run build`.
-3. Publicar el contenido generado dentro de `dist/` en un servicio de alojamiento compatible con páginas web estáticas.
-4. Configurar el alojamiento para que las rutas internas de React Router puedan resolverse mediante `index.html`.
+Para conectar futuras funcionalidades comerciales, la arquitectura puede ampliarse con un backend y servicios externos.
 
-Antes de una publicación productiva, sería necesario evaluar la incorporación de un backend, almacenamiento centralizado, autenticación segura y una pasarela de pago real.
+## 11. Seguridad y limitaciones técnicas
 
-## 13. Estado del proyecto
+El proyecto diferencia las funciones de demostración de los servicios que requieren infraestructura externa.
 
-**Etapa actual:** desarrollo de la página web y sus funcionalidades de demostración.
+El almacenamiento local no reemplaza una base de datos protegida. Del mismo modo, las vistas de registro, inicio de sesión y administración no deben considerarse mecanismos de seguridad de producción mientras no estén respaldadas por autenticación y autorización implementadas en un servidor.
 
-**Pendiente:** implementación y ejecución de pruebas automáticas, verificación integral del funcionamiento y, si corresponde, publicación en la nube.
+El procesamiento de pedidos y los resultados de pago representados en la versión de demostración tampoco constituyen una integración con una pasarela de pago real.
 
-## 14. Autoría
+Estas consideraciones permiten definir las responsabilidades del sitio y los componentes que serían necesarios para evolucionar hacia una plataforma comercial.
 
-Proyecto académico: **Un Heladito**.
+## 12. Mejoras y evolución
 
-Desarrollado utilizando React y Vite, con una estructura basada en componentes reutilizables y navegación interna para presentar los productos y servicios de una heladería artesanal.
+La estructura modular facilita incorporar nuevas capacidades, como:
 
+- Integración con una API y una base de datos remota.
+- Autenticación segura y gestión de permisos.
+- Procesamiento real de pedidos y pagos.
+- Notificaciones automáticas de compra.
+- Administración centralizada del inventario.
+- Mejoras de accesibilidad y optimización de rendimiento.
+- Ampliación de las pruebas automatizadas y de integración.
+
+## 13. Conclusión
+
+Un Heladito reúne en un único sitio web la presentación de la marca, la exploración de productos y un flujo de compra de demostración. Su desarrollo con React, Vite y React Router permite organizar las vistas mediante componentes reutilizables y mantener una navegación coherente.
+
+La estructura del proyecto proporciona una base organizada para mantener el sitio, incorporar nuevas funcionalidades y evolucionar hacia una solución con servicios de backend cuando los requisitos lo necesiten.
+
+## 14. Información del proyecto
+
+**Nombre:** Un Heladito.
+
+**Tipo:** sitio web de heladería artesanal.
+
+**Tecnologías principales:** React, Vite, JavaScript, CSS y React Router.
+
+**Repositorio:** [Un Heladito React en GitHub](https://github.com/Edu-Acevedo/unHeladito-React).
