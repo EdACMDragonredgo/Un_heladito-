@@ -1,125 +1,265 @@
-Un Heladito
+# 🍦 Un Heladito — Página web de heladería artesanal
 
-Descripción
+## 1. Descripción del proyecto
 
-Un Heladito es una plataforma web de e-commerce para una heladería artesanal. Permite visualizar productos, consultar sus detalles, registrarse e iniciar sesión y administrar un carrito de compras.
+**Un Heladito** es una página web dedicada a una heladería artesanal, desarrollada con React y Vite. Su objetivo es ofrecer una experiencia de navegación sencilla y agradable, permitiendo a los usuarios explorar productos, consultar precios, agregar helados al carrito de compras y completar un proceso de compra de demostración.
 
-Proyecto desarrollado para DSY1104 — Desarrollo Web, Duoc UC.
+El proyecto incorpora información sobre la empresa, un catálogo de productos, ofertas, categorías, un blog, una sección de contacto y un panel de administración.
 
-Funcionalidades
+La página utiliza una arquitectura de aplicación de página única (SPA), por lo que las distintas secciones se muestran mediante rutas internas de React Router, sin necesidad de crear un archivo HTML independiente para cada sección.
 
-Página de inicio.
+## 2. Objetivos del proyecto
 
-atálogo de productos.
+- Desarrollar una página web para presentar y ofrecer productos de una heladería artesanal.
+- Facilitar la navegación entre las diferentes secciones del sitio.
+- Implementar un catálogo con búsqueda, filtros y detalles de productos.
+- Incorporar un carrito de compras y un proceso de compra de demostración.
+- Presentar información sobre la historia de la empresa y sus medios de contacto.
+- Implementar una interfaz de administración para gestionar productos, categorías y pedidos simulados.
+- Aplicar React, componentes reutilizables y estilos adaptables a diferentes tamaños de pantalla.
 
-Detalle de productos.
+## 3. Tecnologías utilizadas
 
-Carrito de compras.
+| Tecnología | Uso |
+|---|---|
+| HTML5 | Estructura base de la página web. |
+| CSS3 | Estilos y presentación visual. |
+| JavaScript | Lógica e interactividad del sitio. |
+| React | Construcción de componentes y vistas. |
+| Vite | Servidor de desarrollo y compilación del proyecto. |
+| React Router | Navegación interna entre las secciones. |
+| Bootstrap 5 | Componentes y diseño adaptable. |
+| localStorage | Almacenamiento local de datos de demostración. |
+| sessionStorage | Almacenamiento temporal de información de la sesión. |
+| Oxlint | Análisis estático del código. |
 
-Agregar productos al carrito.
+## 4. Funcionalidades de la página web
 
-Aumentar o disminuir cantidades.
+### Página de inicio
+Presenta la identidad de Un Heladito y permite acceder a los principales contenidos del sitio.
 
-Eliminar productos.
+### Catálogo de productos
+Permite consultar los productos disponibles, visualizar sus precios, imágenes, descripciones, categorías y stock. Incluye búsqueda, filtros y ordenación.
 
-Vaciar el carrito.
+### Detalle de productos
+Muestra información específica de cada producto y permite seleccionar cantidades para agregarlas al carrito, respetando la disponibilidad registrada.
 
-Persistencia mediante localStorage.
+### Categorías y ofertas
+Permite explorar productos por categoría y consultar aquellos identificados como ofertas.
 
-Registro e inicio de sesión.
+### Carrito de compras
+Permite agregar productos, modificar cantidades, eliminar artículos y calcular el total de la compra.
 
-Roles de Cliente y Administrador.
+### Proceso de compra
+Incluye un formulario para ingresar y validar los datos de entrega. El sitio genera pedidos de demostración y presenta resultados de pago aprobados o rechazados de manera simulada.
 
-Formulario de contacto.
+### Registro, inicio de sesión y cuenta
+Incluye vistas para registrar usuarios, iniciar sesión y consultar la sección personal de la cuenta.
 
-Selección de región y comuna.
+### Sección Nosotros
+Presenta la historia de Un Heladito, el origen del emprendimiento y los valores asociados a la elaboración de helados artesanales.
 
-Gestión administrativa de productos y usuarios.
+### Contacto
+Incluye un formulario para ingresar datos personales, calificar la experiencia y escribir comentarios. Actualmente, el envío se simula dentro de la página y no envía correos a un servidor real.
 
-Estructura
+### Blog
+Incluye una sección con publicaciones y vistas para consultar su contenido.
 
-un-heladito-web/
+### Panel de administración
+Ofrece herramientas de demostración para crear, editar y eliminar productos, gestionar categorías, consultar usuarios y revisar pedidos registrados.
+
+## 5. Navegación y rutas
+
+Las secciones de la página se gestionan mediante React Router.
+
+| Ruta | Descripción |
+|---|---|
+| `/` | Página de inicio. |
+| `/productos` | Catálogo de productos. |
+| `/productos/:id` | Detalle de un producto. |
+| `/categorias` | Categorías de productos. |
+| `/ofertas` | Productos en oferta. |
+| `/carrito` | Carrito de compras. |
+| `/checkout` | Formulario de compra. |
+| `/resultado-pago` | Resultado del pago simulado. |
+| `/login` | Inicio de sesión. |
+| `/registro` | Registro de usuarios. |
+| `/mi-cuenta` | Información de la cuenta. |
+| `/nosotros` | Historia de la empresa. |
+| `/contacto` | Formulario de contacto. |
+| `/blog` | Publicaciones del blog. |
+| `/blog/:id` | Detalle de una publicación. |
+| `/admin` | Panel de administración. |
+
+La navegación se realiza dentro del mismo sitio web mediante rutas de React, sin crear un HTML independiente para cada sección.
+
+## 6. Estructura del proyecto
+
+```text
+un-heladito-react/
+├── public/
+│   ├── images/
+│   └── favicon.svg
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── Footer.jsx
+│   │   ├── ProductCard.jsx
+│   │   └── Alert.jsx
+│   ├── context/
+│   │   ├── AuthContext.jsx
+│   │   └── CartContext.jsx
+│   ├── data/
+│   │   ├── mockDatabase.js
+│   │   ├── categories.js
+│   │   ├── useProducts.js
+│   │   └── useCategories.js
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── Products.jsx
+│   │   ├── ProductDetail.jsx
+│   │   ├── Categories.jsx
+│   │   ├── Offers.jsx
+│   │   ├── Cart.jsx
+│   │   ├── Checkout.jsx
+│   │   ├── Login.jsx
+│   │   ├── Register.jsx
+│   │   ├── Account.jsx
+│   │   ├── About.jsx
+│   │   ├── Contact.jsx
+│   │   ├── Blog.jsx
+│   │   ├── BlogDetail.jsx
+│   │   ├── PaymentResult.jsx
+│   │   ├── NotFound.jsx
+│   │   └── admin/
+│   │       └── AdminDashboard.jsx
+│   ├── services/
+│   │   ├── storage.js
+│   │   └── format.js
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── docs/
+│   ├── ERS-v2.md
+│   └── MIGRACION.md
 ├── index.html
-├── catalogo.html
-├── producto.html
-├── carrito.html
-├── login.html
-├── registro.html
-├── contacto.html
-├── nosotros.html
-├── css/
-│   ├── main.css
-│   ├── catalogo.css
-│   └── carrito.css
-├── js/
-│   ├── carrito.js
-│   ├── validaciones.js
-│   └── regiones.js
-└── assets/
-    └── imágenes y recursos
+├── package.json
+├── vite.config.js
+├── .env.example
+└── README.md
+```
 
-Carrito
+## 7. Requisitos previos
 
-El carrito está desarrollado con JavaScript y utiliza localStorage para conservar los productos aunque se recargue la página.
+Para ejecutar el proyecto se necesita:
 
-En el catálogo:
+- Node.js compatible con la versión de Vite utilizada.
+- npm.
+- Un editor de código, como Visual Studio Code.
+- Un navegador web actualizado.
 
-Agregar al carrito añade el producto directamente.
+## 8. Instalación y ejecución
 
-Al presionar la imagen, se accede al detalle del producto.
+### Paso 1. Descargar el proyecto
 
-El contador del carrito se actualiza automáticamente.
+Clonar el repositorio desde GitHub o descargarlo como archivo ZIP y extraerlo.
 
-En el carrito se pueden modificar cantidades, eliminar productos y vaciar el carrito.
+### Paso 2. Abrir una terminal
 
-Roles
+Ingresar a la carpeta raíz del proyecto, donde se encuentra `package.json`.
 
-Cliente
+### Paso 3. Instalar las dependencias
 
-Puede registrarse, iniciar sesión, consultar el catálogo y administrar sus productos del carrito.
+```bash
+npm install
+```
 
-Administrador
+### Paso 4. Iniciar el servidor de desarrollo
 
-Puede acceder a las funciones administrativas para gestionar productos y usuarios según los permisos definidos.
+```bash
+npm run dev
+```
 
-Tecnologías
+Vite mostrará una dirección local, normalmente:
 
-HTML5
+```text
+http://localhost:5173
+```
 
-CSS3
+Abrir esa dirección en el navegador para visualizar la página web.
 
-JavaScript Vanilla
+### Paso 5. Compilar para producción
 
-LocalStorage
+```bash
+npm run build
+```
 
-Google Fonts: Montserrat y Playfair Display
+El resultado de la compilación se genera en la carpeta `dist/`.
 
-Diseño
+Para previsualizar la compilación:
 
-La interfaz utiliza una identidad visual con colores rosa, turquesa, café y fondos claros. Las tarjetas tienen bordes redondeados, sombras y diseño responsive.
+```bash
+npm run preview
+```
 
-Cómo ejecutar
+### Analizar el código
 
-Descargar el proyecto.
+El proyecto también incluye el comando:
 
-Abrir la carpeta en Visual Studio Code.
+```bash
+npm run lint
+```
 
-Abrir index.html en el navegador.
+Este comando utiliza Oxlint para analizar el código estáticamente.
 
-Para desarrollo se recomienda utilizar Live Server.
+## 9. Almacenamiento de datos
 
-Almacenamiento
+La versión actual utiliza datos de demostración y almacenamiento del navegador para conservar información, dependiendo de la funcionalidad.
 
-El proyecto utiliza localStorage para guardar información en el navegador, principalmente los datos necesarios para mantener el carrito y la sesión de usuario.
+Esto permite probar ciertas interacciones sin configurar una base de datos remota. Sin embargo, los datos guardados localmente no constituyen un sistema compartido entre distintos usuarios o dispositivos.
 
-Alcance
+## 10. Pruebas del proyecto
 
-Es una simulación de una plataforma e-commerce. Incluye navegación, autenticación, catálogo y carrito, pero no procesa pagos reales mediante Transbank, Stripe u otras pasarelas.
+La implementación de las pruebas automáticas queda pendiente para una etapa posterior del desarrollo.
 
-Proyecto académico
-Estudiantes: Eduardo Acevedo, Gabriel Abreou Y Edward Cardoza
-Proyecto: Un Heladito — Plataforma Web E-Commerce y Sistema de Gestión
-Profesor: Victor Hugo
-Asignatura: DSY1104 — Desarrollo Web
-Institución: Duoc UC
-Año: 2026
+El proyecto se entrega sin la suite de tests para que pueda diseñarse e implementarse posteriormente, verificando las funcionalidades, componentes, validaciones y operaciones de datos.
+
+La ausencia de pruebas automáticas no significa que la página esté completamente validada. La compilación y el comportamiento de las funcionalidades deben comprobarse antes de publicar la versión definitiva.
+
+## 11. Limitaciones actuales
+
+Esta versión corresponde a una página web de demostración académica.
+
+- No dispone de un backend conectado a un servidor.
+- No utiliza una base de datos remota.
+- El registro y el inicio de sesión no constituyen un sistema de autenticación seguro.
+- Los pedidos y resultados de pago son simulados.
+- El formulario de contacto no envía mensajes a un servidor real.
+- La administración utiliza datos de demostración almacenados localmente.
+
+Por estas razones, el proyecto no debe considerarse un sistema comercial listo para procesar pagos reales o almacenar información sensible.
+
+## 12. Publicación en la nube
+
+Para preparar el sitio para su publicación:
+
+1. Instalar las dependencias con `npm install`.
+2. Ejecutar `npm run build`.
+3. Publicar el contenido generado dentro de `dist/` en un servicio de alojamiento compatible con páginas web estáticas.
+4. Configurar el alojamiento para que las rutas internas de React Router puedan resolverse mediante `index.html`.
+
+Antes de una publicación productiva, sería necesario evaluar la incorporación de un backend, almacenamiento centralizado, autenticación segura y una pasarela de pago real.
+
+## 13. Estado del proyecto
+
+**Etapa actual:** desarrollo de la página web y sus funcionalidades de demostración.
+
+**Pendiente:** implementación y ejecución de pruebas automáticas, verificación integral del funcionamiento y, si corresponde, publicación en la nube.
+
+## 14. Autoría
+
+Proyecto académico: **Un Heladito**.
+
+Desarrollado utilizando React y Vite, con una estructura basada en componentes reutilizables y navegación interna para presentar los productos y servicios de una heladería artesanal.
+
