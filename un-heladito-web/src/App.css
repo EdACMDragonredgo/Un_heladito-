@@ -34,6 +34,10 @@
 .hero-stamp small { display: block; font: 800 .55rem 'Montserrat',sans-serif; letter-spacing: .18em; }
 .floating-note { position: absolute; top: 15%; right: -32px; padding: 1rem 1.2rem; border-radius: 17px; background: white; color: var(--cocoa); font-weight: 800; font-size: .88rem; line-height: 1.5; box-shadow: var(--shadow); transform: rotate(5deg); }
 .section-space { padding-top: clamp(3.5rem,6vw,6rem); padding-bottom: clamp(3.5rem,6vw,6rem); }
+.about-container { max-width: 800px; }
+.about-container h2 { margin-bottom: 1.5rem; font-size: clamp(2rem,3.4vw,3.15rem); }
+.about-container p { color: var(--muted); line-height: 1.9; }
+.about-container p + p { margin-top: 1.5rem; }
 .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 2rem; }
 .section-heading h2, .page-heading h1 { margin: .5rem 0 .45rem; font-size: clamp(2rem,3.4vw,3.15rem); letter-spacing: -.025em; }
 .section-heading p, .page-heading p { margin: 0; color: var(--muted); }
