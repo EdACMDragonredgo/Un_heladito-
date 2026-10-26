@@ -51,9 +51,9 @@ export const initialProducts = [
   },
   {
     id: 'PA002', name: 'Frutos del Bosque', category: 'Paletas artesanales',
-    price: 2000, format: 'Unidad', stock: 12, allergens: 'Consultar ingredientes', offer: true,
+    price: 2000, format: 'Unidad', stock: 12, allergens: '0% Azucar', offer: true,
     description: 'Paleta frutal con una mezcla de berries y sabor fresco.',
-    image: 'https://images.unsplash.com/photo-1488900128323-21503983257e?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.pexels.com/photos/39831399/pexels-photo-39831399.jpeg',
   },
 ];
 
