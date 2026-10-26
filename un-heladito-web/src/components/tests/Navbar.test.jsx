@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
-import Navbar from '../Navbar';
+import Navbar from '../Navbar.jsx';
 import * as CartContext from '../../context/CartContext.jsx';
 import * as AuthContext from '../../context/AuthContext.jsx';
 
