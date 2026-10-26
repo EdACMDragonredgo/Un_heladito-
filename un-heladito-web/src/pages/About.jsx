@@ -1,3 +1,25 @@
 export default function About() {
-  return <main className="container section-space"><div className="page-heading"><span className="eyebrow">NUESTRA HISTORIA</span><h1>Helado hecho con cariño</h1><p>Tres amigos, una misma pasión por el verdadero helado artesanal.</p></div><section className="story-layout"><div className="story-image"><img src="/images/helados-sabores.jpeg" alt="Selección de sabores artesanales de Un Heladito" /></div><div className="story-copy"><span className="eyebrow">CÓMO NACIÓ UN HELADITO</span><h2>Los mejores momentos también vienen en una cucharada.</h2><p>Todo comenzó en las tardes calurosas de universidad, cuando Eduardo, Gabriel y Edward compartían el mismo antojo: disfrutar un buen helado artesanal con fruta real y sabores auténticos.</p><p>Entre pruebas de recetas y combinaciones inesperadas nació Un Heladito, un proyecto que busca unir calidad, frescura y cariño en cada porción.</p><div className="story-values"><div><strong>🌿 Ingredientes</strong><small>Seleccionados con cuidado</small></div><div><strong>❤️ Pasión artesanal</strong><small>Detalles hechos con dedicación</small></div><div><strong>🤝 Comunidad</strong><small>Sabores para compartir</small></div></div></div></section></main>;
+  return (
+    <section className="about-container container section-space">
+      <h2>Sobre Nosotros</h2>
+
+      <p>
+        <strong>Un Heladito</strong> nació alrededor de la mesa familiar, con la idea de
+        transformar momentos sencillos en recuerdos inolvidables. Somos un emprendimiento
+        que surgió del cariño por la heladería tradicional y el deseo de reunir a la
+        comunidad a través de sabores únicos.
+      </p>
+
+      <p>
+        Creemos que los mejores momentos se comparten en familia. Por eso, en cada receta
+        ponemos dedicación, ofreciendo sabores auténticos y una experiencia agradable
+        para nuestros clientes.
+      </p>
+
+      <p>
+        Más que vender helados, nuestro propósito es acompañar tus tardes de paseo, las
+        celebraciones en familia y esos pequeños antojitos que nos alegran el día.
+      </p>
+    </section>
+  );
 }
