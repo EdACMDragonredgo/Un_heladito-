@@ -59,5 +59,14 @@ describe('Componente ProductCard', () => {
         expect(handleAddToCart).toHaveBeenCalledTimes(1);
         expect(handleAddToCart).toHaveBeenCalledWith(mockProduct);
     });
+    it('muestra la etiqueta Oferta cuando el producto está en promoción', () => {
+        render(<MemoryRouter><ProductCard product={{ ...mockProduct, offer: true }} onAddToCart={() => {}} /></MemoryRouter>);
+        expect(screen.getByText('Oferta')).toBeInTheDocument();
+    });
+
+    it('usa la imagen de respaldo cuando el producto no tiene imagen', () => {
+        render(<MemoryRouter><ProductCard product={{ ...mockProduct, image: '' }} onAddToCart={() => {}} /></MemoryRouter>);
+        expect(screen.getByRole('img', { name: mockProduct.name })).toHaveAttribute('src', '/images/hero.jpg');
+    });
 
 });

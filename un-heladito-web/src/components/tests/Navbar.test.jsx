@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { describe, it, expect, vi } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import Navbar from '../Navbar.jsx';
@@ -75,6 +76,32 @@ describe('Componente Navbar', () => {
         const cartBadge = screen.getByText('5');
         expect(cartBadge).toBeInTheDocument();
         expect(cartBadge).toHaveClass('cart-badge');
+    });
+    it('muestra las opciones de administrador solo para un usuario administrador', () => {
+        setupMocks({ user: { name: 'Admin Demo', role: 'Administrador' } });
+        render(<MemoryRouter><Navbar /></MemoryRouter>);
+        expect(screen.getByRole('link', { name: /administración/i })).toBeInTheDocument();
+        expect(screen.getByText(/hola, admin/i)).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: /salir/i })).toBeInTheDocument();
+    });
+
+    it('oculta administración y muestra ingresar cuando no existe sesión', () => {
+        setupMocks({ user: null });
+        render(<MemoryRouter><Navbar /></MemoryRouter>);
+        expect(screen.queryByRole('link', { name: /administración/i })).not.toBeInTheDocument();
+        expect(screen.getByRole('link', { name: /ingresar/i })).toBeInTheDocument();
+    });
+
+    it('abre y cierra el menú móvil al pulsar el botón y un enlace', async () => {
+        const user = userEvent.setup();
+        setupMocks({ user: null });
+        render(<MemoryRouter><Navbar /></MemoryRouter>);
+        const toggle = screen.getByRole('button', { name: /abrir menú/i });
+        expect(toggle).toHaveAttribute('aria-expanded', 'false');
+        await user.click(toggle);
+        expect(toggle).toHaveAttribute('aria-expanded', 'true');
+        await user.click(screen.getByRole('link', { name: /^inicio$/i }));
+        expect(toggle).toHaveAttribute('aria-expanded', 'false');
     });
 
 
