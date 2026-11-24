@@ -1,0 +1,61 @@
+import { useMemo, useState } from 'react';
+import { Navigate, Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext.jsx';
+import { useProducts } from '../../data/useProducts.js';
+import { createProduct, deleteProduct, updateProduct } from '../../data/mockDatabase.js';
+import { createCategory, deleteCategory, updateCategory } from '../../data/categories.js';
+import { useCategories } from '../../data/useCategories.js';
+import { getOrders, readJSON, writeJSON } from '../../services/storage.js';
+import { formatCLP } from '../../services/format.js';
+import Alert from '../../components/Alert.jsx';
+
+const emptyForm = { id: '', name: '', category: 'Helados tradicionales', price: '', format: '500 g', stock: '', allergens: '', description: '', image: '', offer: false };
+
+export default function AdminDashboard() {
+  const { user } = useAuth();
+  const products = useProducts();
+  const categories = useCategories();
+  const [users, setUsers] = useState(() => readJSON('unheladito_users', []));
+  const [newCategory, setNewCategory] = useState('');
+  const [form, setForm] = useState(emptyForm);
+  const [editing, setEditing] = useState(false);
+  const [notice, setNotice] = useState('');
+  const [noticeType, setNoticeType] = useState('success');
+  const orders = useMemo(() => getOrders(), [products.length, notice]);
+  if (!user) return <Navigate to="/login" replace />;
+  if (user.role !== 'Administrador') return <Navigate to="/mi-cuenta" replace />;
+
+  const reset = () => { setForm(emptyForm); setEditing(false); };
+  const updateField = (event) => setForm((current) => ({ ...current, [event.target.name]: event.target.type === 'checkbox' ? event.target.checked : event.target.value }));
+  const submit = (event) => {
+    event.preventDefault();
+    try {
+      const item = { ...form, name: form.name.trim(), price: Number(form.price), stock: Number(form.stock), image: form.image.trim() || '/images/hero.jpg' };
+      if (!item.name || item.price < 0 || item.stock < 0 || !Number.isFinite(item.price) || !Number.isFinite(item.stock)) throw new Error('Revisa el nombre, precio y stock.');
+      if (editing) updateProduct(form.id, item);
+      else createProduct({ ...item, id: form.id.trim() || undefined });
+      setNotice(editing ? 'Producto actualizado correctamente.' : 'Producto creado correctamente.');
+      setNoticeType('success');
+      reset();
+    } catch (error) { setNotice(error.message || 'No fue posible guardar el producto.'); setNoticeType('danger'); }
+  };
+  const edit = (product) => { setForm({ ...product, price: String(product.price), stock: String(product.stock) }); setEditing(true); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+  const remove = (product) => {
+    if (!window.confirm(`¿Eliminar ${product.name}?`)) return;
+    const removed = deleteProduct(product.id);
+    setNotice(removed ? 'Producto eliminado.' : 'No se encontró el producto.'); setNoticeType(removed ? 'success' : 'warning');
+    if (form.id === product.id) reset();
+  };
+  return <main className="container section-space admin-page"><div className="admin-heading"><div><span className="eyebrow">PANEL DE CONTROL</span><h1>Administración</h1><p>Hola, {user.name}. Gestiona los productos y revisa los pedidos de demostración.</p></div><Link className="btn btn-quiet" to="/productos">Ver tienda ↗</Link></div>
+    <div className="admin-metrics"><Metric label="Productos" value={products.length} icon="🍦" /><Metric label="Stock crítico" value={products.filter((product) => Number(product.stock) <= 10).length} icon="⚠️" /><Metric label="Pedidos" value={orders.length} icon="📦" /><Metric label="Ingresos simulados" value={formatCLP(orders.filter((order) => order.status.startsWith('Aprobado')).reduce((sum, order) => sum + order.total, 0))} icon="💗" /></div>
+    <section className="admin-panel"><div className="panel-heading"><div><span className="eyebrow">CATÁLOGO</span><h2>{editing ? 'Editar producto' : 'Agregar producto'}</h2></div></div><Alert message={notice} type={noticeType} onClose={() => setNotice('')} />
+      <form onSubmit={submit} className="form-grid admin-form"><div className="form-group"><label htmlFor="product-id">Código (opcional al crear)</label><input id="product-id" name="id" className="form-control" value={form.id} onChange={updateField} disabled={editing} placeholder="HT005" /></div><div className="form-group"><label htmlFor="product-name">Nombre</label><input id="product-name" name="name" className="form-control" value={form.name} onChange={updateField} required /></div><div className="form-group"><label htmlFor="product-category">Categoría</label><select id="product-category" name="category" className="form-select" value={form.category} onChange={updateField}>{categories.map((item) => <option key={item}>{item}</option>)}</select></div><div className="form-group"><label htmlFor="product-price">Precio (CLP)</label><input id="product-price" name="price" type="number" min="0" className="form-control" value={form.price} onChange={updateField} required /></div><div className="form-group"><label htmlFor="product-format">Formato</label><input id="product-format" name="format" className="form-control" value={form.format} onChange={updateField} required /></div><div className="form-group"><label htmlFor="product-stock">Stock</label><input id="product-stock" name="stock" type="number" min="0" className="form-control" value={form.stock} onChange={updateField} required /></div><div className="form-group"><label htmlFor="product-allergens">Alérgenos</label><input id="product-allergens" name="allergens" className="form-control" value={form.allergens} onChange={updateField} /></div><div className="form-group form-span"><label htmlFor="product-description">Descripción</label><textarea id="product-description" name="description" className="form-control" rows="2" value={form.description} onChange={updateField} required /></div><div className="form-group form-span"><label htmlFor="product-image">Ruta de imagen o URL</label><input id="product-image" name="image" className="form-control" value={form.image} onChange={updateField} placeholder="/images/hero.jpg" /></div><label className="check-field"><input type="checkbox" name="offer" checked={Boolean(form.offer)} onChange={updateField} /> Mostrar como oferta</label><div className="form-span form-actions"><button className="btn btn-primary" type="submit">{editing ? 'Guardar cambios' : 'Crear producto'}</button>{editing && <button type="button" className="btn btn-outline-secondary" onClick={reset}>Cancelar edición</button>}</div></form>
+    </section>
+    <section className="admin-panel"><div className="panel-heading"><div><span className="eyebrow">INVENTARIO</span><h2>Productos registrados</h2></div><span className="result-count">{products.length} productos</span></div><div className="table-responsive"><table className="table align-middle admin-table"><thead><tr><th>Código</th><th>Producto</th><th>Categoría</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr></thead><tbody>{products.map((product) => <tr key={product.id}><td><code>{product.id}</code></td><td><div className="table-product"><img src={product.image || '/images/hero.jpg'} alt="" onError={(event) => { event.currentTarget.src = '/images/hero.jpg'; }} /><span>{product.name}<small>{product.format}</small></span></div></td><td>{product.category}</td><td>{formatCLP(product.price)}</td><td><span className={`stock-pill ${product.stock <= 10 ? 'stock-low' : ''}`}>{product.stock}</span></td><td><div className="d-flex gap-2"><button className="btn btn-sm btn-outline-primary" onClick={() => edit(product)}>Editar</button><button className="btn btn-sm btn-outline-danger" onClick={() => remove(product)}>Eliminar</button></div></td></tr>)}</tbody></table></div></section>
+    <section className="admin-panel"><div className="panel-heading"><div><span className="eyebrow">ORGANIZACIÓN</span><h2>Categorías</h2></div></div><form className="category-admin-form" onSubmit={(event) => { event.preventDefault(); try { createCategory(newCategory); setNewCategory(''); setNotice('Categoría creada.'); setNoticeType('success'); } catch (error) { setNotice(error.message); setNoticeType('danger'); } }}><input aria-label="Nombre de nueva categoría" className="form-control" value={newCategory} onChange={(event) => setNewCategory(event.target.value)} placeholder="Nombre de la nueva categoría" required /><button className="btn btn-primary" type="submit">Agregar categoría</button></form><div className="category-admin-list">{categories.map((category) => <div className="category-admin-row" key={category}><span>{category}</span><div className="d-flex gap-2"><button className="btn btn-sm btn-outline-primary" onClick={() => { const next = window.prompt('Nuevo nombre de categoría:', category); if (!next) return; try { updateCategory(category, next); setNotice('Categoría actualizada.'); setNoticeType('success'); } catch (error) { setNotice(error.message); setNoticeType('danger'); } }}>Renombrar</button><button className="btn btn-sm btn-outline-danger" onClick={() => { const removed = deleteCategory(category); setNotice(removed ? 'Categoría eliminada.' : 'No se puede eliminar una categoría que todavía tiene productos asociados.'); setNoticeType(removed ? 'success' : 'warning'); }}>Eliminar</button></div></div>)}</div></section>
+    <section className="admin-panel"><div className="panel-heading"><div><span className="eyebrow">CUENTAS</span><h2>Usuarios registrados</h2></div></div>{users.length === 0 ? <p className="text-muted">Todavía no hay usuarios registrados.</p> : <div className="table-responsive"><table className="table align-middle"><thead><tr><th>Nombre</th><th>Correo</th><th>Rol</th><th>Acciones</th></tr></thead><tbody>{users.map((account) => <tr key={account.id}><td>{account.name}</td><td>{account.email}</td><td><span className="status-pill">{account.role}</span></td><td><div className="d-flex gap-2"><select className="form-select form-select-sm" aria-label={`Rol de ${account.name}`} value={account.role} disabled={account.id === user.id} onChange={(event) => { if (event.target.value === 'Administrador' && !account.email.toLowerCase().endsWith('@duoc.cl')) { setNotice('Para la cuenta de demostración, el rol Administrador requiere un correo @duoc.cl.'); setNoticeType('warning'); return; } const next = users.map((entry) => entry.id === account.id ? { ...entry, role: event.target.value } : entry); setUsers(next); writeJSON('unheladito_users', next); setNotice('Rol actualizado. La autorización es solo de demostración.'); setNoticeType('success'); }}><option>Cliente</option><option>Vendedor</option><option>Administrador</option></select><button className="btn btn-sm btn-outline-danger" disabled={account.id === user.id} onClick={() => { if (!window.confirm(`¿Eliminar a ${account.name}?`)) return; const next = users.filter((entry) => entry.id !== account.id); setUsers(next); writeJSON('unheladito_users', next); setNotice('Usuario eliminado.'); setNoticeType('success'); }}>Eliminar</button></div></td></tr>)}</tbody></table></div>}</section>
+    <section className="admin-panel"><div className="panel-heading"><div><span className="eyebrow">VENTAS</span><h2>Pedidos de demostración</h2></div></div>{orders.length === 0 ? <p className="text-muted mb-0">Todavía no hay pedidos. Completa una compra simulada desde el checkout para verla aquí.</p> : <div className="table-responsive"><table className="table align-middle"><thead><tr><th>Pedido</th><th>Cliente</th><th>Fecha</th><th>Estado</th><th>Total</th></tr></thead><tbody>{orders.map((order) => <tr key={order.id}><td>{order.id}</td><td>{order.customer?.name}<small className="d-block text-muted">{order.customer?.email}</small></td><td>{new Date(order.createdAt).toLocaleDateString('es-CL')}</td><td><span className="status-pill">{order.status}</span></td><td>{formatCLP(order.total)}</td></tr>)}</tbody></table></div>}</section>
+    <p className="demo-warning">Este panel es una demostración académica con almacenamiento en el navegador. La autorización real y los datos multiusuario requieren un backend.</p>
+  </main>;
+}
+function Metric({ label, value, icon }) { return <article className="metric-box"><span>{icon}</span><small>{label}</small><strong>{value}</strong></article>; }
